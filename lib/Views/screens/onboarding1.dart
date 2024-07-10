@@ -7,13 +7,13 @@ class Onboarding1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Onboarding 1"),
+        title: const Text("Onboarding 1..........;"),
         centerTitle: true,
       ),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Center(child: Text("onboarding 1")),
+          Center(child: Text("onboarding 1....")),
         ],
       ),
     );
