@@ -7,7 +7,7 @@ class Onboarding2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Onboarding 2"),
+        title: const Text("change to the branch seddik"),
         centerTitle: true,
       ),
       body: const Column(
