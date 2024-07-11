@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/singInController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
+import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/widgets/singInUpFormField.dart';
 
 class SingIn extends StatelessWidget {
@@ -67,7 +68,22 @@ class SingIn extends StatelessWidget {
                             decorationStyle: TextDecorationStyle.solid),
                       )),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  MaterialButton(
+                      padding: const EdgeInsets.symmetric(horizontal: 60),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      color: AppColor.primarycolor,
+                      child: const Text(
+                        "Go to home",
+                        style: TextStyle(color: AppColor.white),
+                      ),
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.homeScreen);
+                      })
                 ],
               ),
             ),
