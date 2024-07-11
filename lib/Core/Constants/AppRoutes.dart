@@ -1,5 +1,6 @@
 class AppRoutes {
-  static String onboarding = "/onboarding";
+  static String onboardingScreen = "/onboardingScreen";
+  static String onboarding1 = "/onboarding1";
   static String singin = "/singin";
   static String singup = "/singup";
   static String forgotpassword = "/forgotpassword";

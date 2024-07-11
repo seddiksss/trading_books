@@ -5,6 +5,7 @@ import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
 import 'package:trading_books/Views/screens/onboarding1.dart';
+import 'package:trading_books/Views/screens/onboardingscreen.dart';
 import 'package:trading_books/Views/screens/profil.dart';
 import 'package:trading_books/Views/screens/singin.dart';
 import 'package:trading_books/Views/screens/singup.dart';
@@ -22,9 +23,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: InitialBindings(),
-      initialRoute: AppRoutes.onboarding,
+      initialRoute: AppRoutes.onboardingScreen,
       getPages: [
-        GetPage(name: AppRoutes.onboarding, page: () => const Onboarding1()),
+        GetPage(
+            name: AppRoutes.onboardingScreen,
+            page: () => const OnboardingScreen()),
         GetPage(name: AppRoutes.singin, page: () => const SingIn()),
         GetPage(name: AppRoutes.singup, page: () => const SingUp()),
         GetPage(name: AppRoutes.homeScreen, page: () => const HomeScreen()),

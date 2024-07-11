@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 
 class Onboarding1 extends StatelessWidget {
   const Onboarding1({super.key});
@@ -6,16 +7,10 @@ class Onboarding1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Onboarding 1..........;"),
-        centerTitle: true,
-      ),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Center(child: Text("onboarding 1....")),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Onboarding 1..........;"),
+          centerTitle: true,
+        ),
+        body: Container());
   }
 }
