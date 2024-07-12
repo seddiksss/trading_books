@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trading_books/Controllers/singInController.dart';
 import 'package:trading_books/Controllers/singUpController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
