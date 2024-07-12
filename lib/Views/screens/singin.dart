@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:trading_books/Controllers/singInController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
+import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/widgets/singInUpFormField.dart';
 
 class SingIn extends StatelessWidget {
@@ -94,7 +95,8 @@ class SingIn extends StatelessWidget {
                         style: TextStyle(color: AppColor.white),
                       ),
                       onPressed: () {
-                        Get.toNamed(AppRoutes.homeScreen);
+                        Get.offAll(HomeScreen());
+                        // Get.toNamed(AppRoutes.homeScreen);
                       })
                 ],
               ),
