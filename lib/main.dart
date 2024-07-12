@@ -4,7 +4,6 @@ import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
-import 'package:trading_books/Views/screens/onboarding1.dart';
 import 'package:trading_books/Views/screens/onboardingscreen.dart';
 import 'package:trading_books/Views/screens/profil.dart';
 import 'package:trading_books/Views/screens/singin.dart';

@@ -23,12 +23,20 @@ class SingIn extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Center(
+                      child: Text(
+                    "SING IN TO GET STARTED!",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  )),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   SingInUpFormField(
                     hinttext: 'Enter your email address',
                     iconData: const Icon(Icons.email),
                     label: "login",
                     obscureText: false,
-                    mycontroller: controller.singInController,
+                    mycontroller: controller.emailController,
                   ),
                   SingInUpFormField(
                     hinttext: 'Enter your password',
@@ -53,20 +61,24 @@ class SingIn extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(" Don't have an account "),
+                      const Text(" Don't have an account "),
                       InkWell(
-                          child: Text(
-                        "Click here!!",
-                        style: TextStyle(
-                            color: AppColor.red,
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColor.red,
-                            decorationStyle: TextDecorationStyle.solid),
-                      )),
+                        child: const Text(
+                          "Click here!!",
+                          style: TextStyle(
+                              color: AppColor.red,
+                              fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppColor.red,
+                              decorationStyle: TextDecorationStyle.solid),
+                        ),
+                        onTap: () {
+                          Get.toNamed(AppRoutes.singup);
+                        },
+                      ),
                     ],
                   ),
                   const SizedBox(
