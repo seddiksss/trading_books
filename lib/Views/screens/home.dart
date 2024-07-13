@@ -106,11 +106,13 @@ class Home extends StatelessWidget {
                 ),
                 Row(children: [
                   BookCardHome(
+                    color: Colors.blueAccent,
                     picture: "assets/images/book2.png",
                     title: "ANNUAL REPORT",
                     prix: "120 DH",
                   ),
                   BookCardHome(
+                    color: Colors.blueGrey,
                     picture: "assets/images/book2.png",
                     title: "ANNUAL REPORT",
                     prix: "120 DH",
@@ -118,11 +120,13 @@ class Home extends StatelessWidget {
                 ]),
                 Row(children: [
                   BookCardHome(
+                    color: Colors.blueGrey,
                     picture: "assets/images/book2.png",
                     title: "ANNUAL REPORT",
                     prix: "120 DH",
                   ),
                   BookCardHome(
+                    color: Colors.blueAccent,
                     picture: "assets/images/book2.png",
                     title: "ANNUAL REPORT",
                     prix: "120 DH",

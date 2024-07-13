@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class BookCardHome extends StatelessWidget {
-  const BookCardHome(
-      {super.key,
-      required this.prix,
-      required this.title,
-      required this.picture});
+  const BookCardHome({
+    super.key,
+    required this.prix,
+    required this.title,
+    required this.picture,
+    required this.color,
+  });
   final String prix;
   final String title;
   final String picture;
-
+  final dynamic color;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -22,7 +24,7 @@ class BookCardHome extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                color: const Color.fromARGB(255, 41, 157, 214),
+                color: color,
                 height: 150,
                 width: 130,
                 child: Center(
