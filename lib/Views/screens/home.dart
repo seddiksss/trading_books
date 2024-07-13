@@ -6,138 +6,172 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: Scaffold(
-            appBar: AppBar(
-              title: Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(158, 158, 158, 0.231),
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                margin: const EdgeInsets.only(left: 7.0, right: 7.0),
-                padding: const EdgeInsets.only(left: 12.0, right: 5.0),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.search),
-                      hintText: 'Search',
-                      border: InputBorder.none,
-                    ),
-                    onFieldSubmitted: (value) {},
-                  ),
-                ),
-              ),
-              centerTitle: true,
-            ),
-            body: ListView(
-              children: [
-                Container(
-                    alignment: Alignment.center,
-                    height: 550,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/home.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 340,
-                        ),
-                        const Text(
-                          " A NEW \n AND EASY \n WAY TO ",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black,
-                                  offset: Offset(2.0, 2.0),
-                                  blurRadius: 3.0,
-                                ),
-                              ],
-                              fontSize: 26.0,
-                              letterSpacing: 4,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 210, 205, 200)),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            print("click button");
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.orange,
-                                borderRadius: BorderRadius.circular(50)),
-                            child: const Text(
-                              "EXCHANGE YOUR BOOKS",
-                              style: TextStyle(
-                                  fontSize: 18.0, color: Colors.white),
-                            ),
-                          ),
-                        )
-                      ],
-                    )),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  "NEW ARRIVAL",
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,
-                ),
-                Divider(
-                    height: 1.0,
-                    endIndent: 120,
-                    indent: 120,
-                    color: Colors.black),
-                SizedBox(
-                  height: 12,
-                ),
-                Row(children: [
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                  ),
-                  BookCardHome(
-                    color: Colors.blueGrey,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                  ),
-                ]),
-                Row(children: [
-                  BookCardHome(
-                    color: Colors.blueGrey,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                  ),
-                ]),
-                SizedBox(
-                  height: 50,
-                )
-              ],
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.black,
+        elevation: 10,
+        toolbarHeight: 120,
+        title: TextFormField(
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            filled: true,
+            suffixIcon: Icon(Icons.search),
+            hintText: 'Search',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                borderSide: BorderSide(width: 0, style: BorderStyle.none)),
           ),
-        ));
+          onFieldSubmitted: (value) {},
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 60),
+        child: ListView(
+          children: [
+            Container(
+                alignment: Alignment.center,
+                height: 550,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/home.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 340,
+                    ),
+                    const Text(
+                      " A NEW \n AND EASY \n WAY TO ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 3.0,
+                            ),
+                          ],
+                          fontSize: 26.0,
+                          letterSpacing: 4,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 210, 205, 200)),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        print("click button");
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(50)),
+                        child: const Text(
+                          "EXCHANGE YOUR BOOKS",
+                          style: TextStyle(fontSize: 18.0, color: Colors.white),
+                        ),
+                      ),
+                    )
+                  ],
+                )),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "NEW ARRIVAL",
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
+            const Divider(
+                height: 1.0, endIndent: 120, indent: 120, color: Colors.black),
+            const SizedBox(
+              height: 12,
+            ),
+            GridView.count(
+                padding: const EdgeInsets.symmetric(vertical: 30),
+                mainAxisSpacing: 15,
+                crossAxisCount: 2,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                children: [
+                  BookCardHome(
+                    onTap: () {},
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                ]),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -7,19 +7,23 @@ class BookCardHome extends StatelessWidget {
     required this.title,
     required this.picture,
     required this.color,
+    required this.onTap,
   });
   final String prix;
   final String title;
   final String picture;
   final dynamic color;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print("clicked");
-      },
+      onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
+        margin: EdgeInsets.only(
+          left: 20,
+          right: 20,
+          // bottom: 15
+        ),
         child: Container(
           child: Column(
             children: [
@@ -61,9 +65,6 @@ class BookCardHome extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
               ),
-              SizedBox(
-                height: 15,
-              )
             ],
           ),
         ),

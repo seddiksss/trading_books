@@ -32,7 +32,7 @@ class BottomAppBarWidget extends StatelessWidget {
       height: 60,
       // Adjust height as needed
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      decoration: const BoxDecoration(color: Colors.transparent),
+      // decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
