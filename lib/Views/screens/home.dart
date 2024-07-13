@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trading_books/Views/widgets/bookCardHome.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -41,7 +42,7 @@ class Home extends StatelessWidget {
                     height: 550,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/background.jpeg'),
+                        image: AssetImage('assets/images/home.png'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -54,10 +55,17 @@ class Home extends StatelessWidget {
                           " A NEW \n AND EASY \n WAY TO ",
                           textAlign: TextAlign.center,
                           style: TextStyle(
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 3.0,
+                                ),
+                              ],
                               fontSize: 26.0,
                               letterSpacing: 4,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 210, 205, 200)),
                         ),
                         const SizedBox(
                           height: 20,
@@ -93,6 +101,36 @@ class Home extends StatelessWidget {
                     endIndent: 120,
                     indent: 120,
                     color: Colors.black),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(children: [
+                  BookCardHome(
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                  BookCardHome(
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                ]),
+                Row(children: [
+                  BookCardHome(
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                  BookCardHome(
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                ]),
+                SizedBox(
+                  height: 50,
+                )
               ],
             ),
           ),
