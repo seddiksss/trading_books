@@ -25,6 +25,8 @@ class BookCardHome extends StatelessWidget {
           // bottom: 15
         ),
         child: Container(
+          // margin: EdgeInsets.all(100),
+          height: 200,
           child: Column(
             children: [
               Container(
@@ -58,11 +60,14 @@ class BookCardHome extends StatelessWidget {
                 ),
               ),
               Container(
+                padding: EdgeInsets.only(left: 10),
+                // margin: EdgeInsets.only(top: 20),
+                height: 10,
                 // margin: EdgeInsets.only(left: 28),
                 child: Text(
                   prix,
-                  style: TextStyle(color: Colors.red),
-                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.red, fontSize: 15),
+                  // textAlign: TextAlign.left,
                 ),
               ),
             ],
