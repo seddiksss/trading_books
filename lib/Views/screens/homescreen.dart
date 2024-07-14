@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
+import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Views/widgets/customPageButton.dart';
 
 class HomeScreen extends GetView {
@@ -8,19 +9,13 @@ class HomeScreen extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        GetBuilder<HomeController>(
-            builder: (controller) =>
-                controller.pageList[controller.currentPag]),
-        const Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: BottomAppBarWidget(),
-        ),
-      ],
-    ));
+      bottomNavigationBar: const BottomAppBar(
+        // height: 70,
+        child: BottomAppBarWidget(),
+      ),
+      body: GetBuilder<HomeController>(
+          builder: (controller) => controller.pageList[controller.currentPag]),
+    );
   }
 }
 
@@ -29,8 +24,6 @@ class BottomAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      // Adjust height as needed
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       // decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
