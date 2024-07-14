@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:trading_books/Controllers/onboardingScreenController.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
+import 'package:trading_books/Middelwares/middelware.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -28,6 +29,7 @@ class OnboardingScreen extends StatelessWidget {
                     done: const Text("Done",
                         style: TextStyle(fontWeight: FontWeight.w700)),
                     onDone: () {
+                      box.write('onBoarding finish', 'go');
                       Get.toNamed(AppRoutes.singin);
                     },
                     onSkip: () {
