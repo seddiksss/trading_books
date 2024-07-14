@@ -6,6 +6,7 @@ class SingInUpFormField extends StatelessWidget {
   final Widget iconData;
   final TextEditingController mycontroller;
   final bool? obscureText;
+  final FocusNode? focusNode;
 
   final String? Function(String?)? validator;
 
@@ -17,12 +18,14 @@ class SingInUpFormField extends StatelessWidget {
     required this.mycontroller,
     this.validator,
     this.obscureText,
+    this.focusNode,
   });
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
+        focusNode: focusNode,
         controller: mycontroller,
         obscureText: obscureText == null ? false : obscureText!,
         validator: validator,

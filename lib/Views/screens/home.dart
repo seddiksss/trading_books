@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           shadowColor: Colors.black,
           elevation: 10,
-          toolbarHeight: 120,
+          toolbarHeight: 100,
           title: TextFormField(
             focusNode: focusNode,
             decoration: const InputDecoration(
@@ -31,157 +31,150 @@ class Home extends StatelessWidget {
             onFieldSubmitted: (value) {},
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(bottom: 60),
-          child: ListView(
-            children: [
-              Container(
-                  alignment: Alignment.center,
-                  height: 550,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/home.png'),
-                      fit: BoxFit.cover,
-                    ),
+        body: ListView(
+          children: [
+            Container(
+                alignment: Alignment.center,
+                height: 550,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/home.png'),
+                    fit: BoxFit.cover,
                   ),
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 340,
-                      ),
-                      const Text(
-                        " A NEW \n AND EASY \n WAY TO ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            shadows: [
-                              Shadow(
-                                color: Colors.black,
-                                offset: Offset(2.0, 2.0),
-                                blurRadius: 3.0,
-                              ),
-                            ],
-                            fontSize: 26.0,
-                            letterSpacing: 4,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 210, 205, 200)),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          print("click button");
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              color: Colors.orange,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: const Text(
-                            "EXCHANGE YOUR BOOKS",
-                            style:
-                                TextStyle(fontSize: 18.0, color: Colors.white),
-                          ),
-                        ),
-                      )
-                    ],
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "NEW ARRIVAL",
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
-              const Divider(
-                  height: 1.0,
-                  endIndent: 120,
-                  indent: 120,
-                  color: Colors.black),
-              const SizedBox(
-                height: 12,
-              ),
-              GridView.count(
-                  padding: const EdgeInsets.symmetric(vertical: 30),
-                  mainAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
+                ),
+                child: Column(
                   children: [
-                    BookCardHome(
-                      onTap: () {},
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
+                    const SizedBox(
+                      height: 340,
                     ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
+                    const Text(
+                      " A NEW \n AND EASY \n WAY TO ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 3.0,
+                            ),
+                          ],
+                          fontSize: 26.0,
+                          letterSpacing: 4,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 210, 205, 200)),
                     ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
+                    const SizedBox(
+                      height: 20,
                     ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                    BookCardHome(
-                      color: Colors.blueAccent,
-                      picture: "assets/images/book2.png",
-                      title: "ANNUAL REPORT",
-                      prix: "120 DH",
-                      onTap: () {},
-                    ),
-                  ]),
-            ],
-          ),
+                    InkWell(
+                      onTap: () {
+                        print("click button");
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(50)),
+                        child: const Text(
+                          "EXCHANGE YOUR BOOKS",
+                          style: TextStyle(fontSize: 18.0, color: Colors.white),
+                        ),
+                      ),
+                    )
+                  ],
+                )),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "NEW ARRIVAL",
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
+            const Divider(
+                height: 1.0, endIndent: 120, indent: 120, color: Colors.black),
+            const SizedBox(
+              height: 12,
+            ),
+            GridView.count(
+                padding: const EdgeInsets.symmetric(vertical: 30),
+                mainAxisSpacing: 20,
+                crossAxisCount: 2,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                children: [
+                  BookCardHome(
+                    onTap: () {},
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                  BookCardHome(
+                    color: Colors.blueAccent,
+                    picture: "assets/images/book2.png",
+                    title: "ANNUAL REPORT",
+                    prix: "120 DH",
+                    onTap: () {},
+                  ),
+                ]),
+          ],
         ),
       ),
     );
