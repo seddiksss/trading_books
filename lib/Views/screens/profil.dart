@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
             BigUserCard(
               backgroundColor: Colors.red,
               userName: "Omar Baizou",
-              userProfilePic: AssetImage("assets/images/shape2.png"),
+              userProfilePic: const AssetImage("assets/images/shape2.png"),
               cardActionWidget: SettingsItem(
                 icons: Icons.edit,
                 iconStyle: IconStyle(
@@ -144,7 +144,7 @@ class _ProfileState extends State<Profile> {
                   onTap: () {},
                   icons: CupertinoIcons.delete_solid,
                   title: "Delete account",
-                  titleStyle: TextStyle(
+                  titleStyle: const TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.bold,
                   ),

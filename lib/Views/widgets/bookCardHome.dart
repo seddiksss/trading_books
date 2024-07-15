@@ -19,12 +19,12 @@ class BookCardHome extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           left: 20,
           right: 20,
           // bottom: 15
         ),
-        child: Container(
+        child: SizedBox(
           // margin: EdgeInsets.all(100),
           height: 200,
           child: Column(
@@ -40,7 +40,7 @@ class BookCardHome extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.3), // Shadow color
-                          offset: Offset(6, 5), // Shadow offset
+                          offset: const Offset(6, 5), // Shadow offset
                           blurRadius: 6, // Shadow blur radius
                         ),
                       ],
@@ -60,13 +60,13 @@ class BookCardHome extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 // margin: EdgeInsets.only(top: 20),
                 height: 10,
                 // margin: EdgeInsets.only(left: 28),
                 child: Text(
                   prix,
-                  style: TextStyle(color: Colors.red, fontSize: 15),
+                  style: const TextStyle(color: Colors.red, fontSize: 15),
                   // textAlign: TextAlign.left,
                 ),
               ),
