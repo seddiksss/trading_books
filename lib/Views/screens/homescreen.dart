@@ -25,52 +25,55 @@ class BottomAppBarWidget extends StatelessWidget {
   const BottomAppBarWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        // Image.asset('assets/images/day-with-rain.png'),
-        GetBuilder<HomeController>(
-            builder: (controller) => CustomPageBotton(
-                title: "Home",
-                iconData: Icons.home,
-                onPressed: () {
-                  controller.changePage(0);
-                },
-                index: 0)),
-        GetBuilder<HomeController>(
-            builder: (controller) => CustomPageBotton(
-                title: "Comm",
-                iconData: Icons.browse_gallery,
-                onPressed: () {
-                  controller.changePage(1);
-                },
-                index: 1)),
-        GetBuilder<HomeController>(
-            builder: (controller) => CustomPageBotton(
-                title: "Shelf",
-                iconData: Icons.card_giftcard,
-                onPressed: () {
-                  controller.changePage(2);
-                },
-                index: 2)),
-        GetBuilder<HomeController>(
-            builder: (controller) => CustomPageBotton(
-                title: "Notif",
-                iconData: Icons.email,
-                onPressed: () {
-                  controller.changePage(3);
-                },
-                index: 3)),
-        GetBuilder<HomeController>(
-            builder: (controller) => CustomPageBotton(
-                title: "Prfl",
-                iconData: Icons.person,
-                onPressed: () {
-                  controller.changePage(4);
-                },
-                index: 4))
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 2),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Image.asset('assets/images/day-with-rain.png'),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Home",
+                  iconData: Icons.home,
+                  onPressed: () {
+                    controller.changePage(0);
+                  },
+                  index: 0)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Comm",
+                  iconData: Icons.browse_gallery,
+                  onPressed: () {
+                    controller.changePage(1);
+                  },
+                  index: 1)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Shelf",
+                  iconData: Icons.card_giftcard,
+                  onPressed: () {
+                    controller.changePage(2);
+                  },
+                  index: 2)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Notif",
+                  iconData: Icons.email,
+                  onPressed: () {
+                    controller.changePage(3);
+                  },
+                  index: 3)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Prfl",
+                  iconData: Icons.person,
+                  onPressed: () {
+                    controller.changePage(4);
+                  },
+                  index: 4))
+        ],
+      ),
     );
   }
 }

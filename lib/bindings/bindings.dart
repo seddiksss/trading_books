@@ -8,6 +8,7 @@ class InitialBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(OnboardingScreenController());
+
     Get.put(HomeController());
     Get.put(HomeScreenController());
     Get.put(ProfilController());
