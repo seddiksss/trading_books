@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
-import 'package:trading_books/Core/Constants/AppColor.dart';
+
 import 'package:trading_books/Views/widgets/customPageButton.dart';
 
 class HomeScreen extends GetView {
