@@ -115,8 +115,8 @@ class Home extends StatelessWidget {
               ],
             ),
             GridView.count(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                mainAxisSpacing: screenHeight / 50,
+                childAspectRatio: 0.7,
+                mainAxisSpacing: screenHeight / 30,
                 crossAxisCount: 2,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
