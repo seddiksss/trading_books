@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
+<<<<<<< HEAD
+=======
 
+>>>>>>> 82f49424540abd95ebe55516a91f3d35ad8d5b31
 import 'package:trading_books/Views/widgets/customPageButton.dart';
 
 class HomeScreen extends GetView {
