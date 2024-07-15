@@ -1,16 +1,12 @@
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trading_books/Controllers/profilController.dart';
 
-class Profile extends StatefulWidget {
+class Profile extends StatelessWidget {
   const Profile({super.key});
 
-  @override
-  State<Profile> createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
-  bool theme = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,92 +36,90 @@ class _ProfileState extends State<Profile> {
                 },
               ),
             ),
-            SettingsGroup(
-              items: [
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.payment,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+            GetBuilder<ProfilController>(
+              builder: (controller) => SettingsGroup(
+                items: [
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.payment,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'Payment',
                   ),
-                  title: 'Payment',
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.monetization_on,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.monetization_on,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'My orders',
                   ),
-                  title: 'My orders',
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.person_add_alt,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.person_add_alt,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'Followers',
                   ),
-                  title: 'Followers',
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.person_2_outlined,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.person_2_outlined,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'Following',
                   ),
-                  title: 'Following',
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.fingerprint,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.fingerprint,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'Privacy',
                   ),
-                  title: 'Privacy',
-                ),
-                SettingsItem(
-                  onTap: () {
-                    setState(() {
-                      theme = true;
-                    });
-                  },
-                  icons: Icons.dark_mode_rounded,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
-                  ),
-                  title: 'Dark mode',
-                  subtitle: "Automatic",
-                  trailing: Switch.adaptive(
-                    value: theme,
-                    onChanged: (value) {
-                      setState(() {
-                        theme = value;
-                      });
+                  SettingsItem(
+                    onTap: () {
+                      controller.theme = true;
                     },
+                    icons: Icons.dark_mode_rounded,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'Dark mode',
+                    subtitle: "Automatic",
+                    trailing: Switch.adaptive(
+                      value: controller.theme,
+                      onChanged: (value) {
+                        controller.theme = value;
+                      },
+                    ),
                   ),
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.info_rounded,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
+                  SettingsItem(
+                    onTap: () {},
+                    icons: Icons.info_rounded,
+                    iconStyle: IconStyle(
+                      iconsColor: Colors.white,
+                      withBackground: true,
+                      backgroundColor: Colors.red,
+                    ),
+                    title: 'About',
                   ),
-                  title: 'About',
-                ),
-              ],
+                ],
+              ),
             ),
             SettingsGroup(
               settingsGroupTitle: "Account",
@@ -155,5 +149,6 @@ class _ProfileState extends State<Profile> {
         ),
       ),
     );
+    ;
   }
 }
