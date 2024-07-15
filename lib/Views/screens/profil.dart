@@ -139,7 +139,7 @@ class Profile extends StatelessWidget {
                   onTap: () {},
                   icons: CupertinoIcons.delete_solid,
                   title: "Delete account",
-                  titleStyle: TextStyle(
+                  titleStyle: const TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.bold,
                   ),
