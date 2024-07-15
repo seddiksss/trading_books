@@ -19,15 +19,18 @@ class CustomPageBotton extends GetView {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+        minWidth: 5,
         onPressed: onPressed,
         child: GetBuilder<HomeController>(builder: (controller) {
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(iconData,
-                  color: controller.currentPag == index
-                      ? AppColor.primarycolor
-                      : AppColor.grey),
+              Icon(
+                iconData,
+                color: controller.currentPag == index
+                    ? AppColor.primarycolor
+                    : AppColor.grey,
+              ),
               Text(
                 title,
                 style: TextStyle(

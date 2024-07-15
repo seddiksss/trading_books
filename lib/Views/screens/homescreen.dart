@@ -24,7 +24,7 @@ class BottomAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      // padding: const EdgeInsets.symmetric(horizontal: 16.0),
       // decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,20 +41,36 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 0)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Notifications",
-                  iconData: Icons.email,
+                  title: "Comm",
+                  iconData: Icons.browse_gallery,
                   onPressed: () {
                     controller.changePage(1);
                   },
                   index: 1)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Profile",
-                  iconData: Icons.person,
+                  title: "Shelf",
+                  iconData: Icons.card_giftcard,
                   onPressed: () {
                     controller.changePage(2);
                   },
-                  index: 2))
+                  index: 2)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Notif",
+                  iconData: Icons.email,
+                  onPressed: () {
+                    controller.changePage(3);
+                  },
+                  index: 3)),
+          GetBuilder<HomeController>(
+              builder: (controller) => CustomPageBotton(
+                  title: "Prfl",
+                  iconData: Icons.person,
+                  onPressed: () {
+                    controller.changePage(4);
+                  },
+                  index: 4))
         ],
       ),
     );
