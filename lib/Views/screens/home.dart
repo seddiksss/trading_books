@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           shadowColor: Colors.black,
           elevation: 10,
-          toolbarHeight: 100,
+          toolbarHeight: 120,
           title: TextFormField(
             focusNode: focusNode,
             decoration: const InputDecoration(
@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
           children: [
             Container(
                 alignment: Alignment.center,
-                height: screenHeight / 1.5,
+                height: 550,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/home.png'),
@@ -47,8 +47,8 @@ class Home extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: screenHeight / 2.5,
+                    const SizedBox(
+                      height: 340,
                     ),
                     const Text(
                       " A NEW \n AND EASY \n WAY TO ",
@@ -74,8 +74,7 @@ class Home extends StatelessWidget {
                         print("click button");
                       },
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.orange,
                             borderRadius: BorderRadius.circular(50)),
@@ -87,8 +86,8 @@ class Home extends StatelessWidget {
                     )
                   ],
                 )),
-            SizedBox(
-              height: screenHeight / 35,
+            const SizedBox(
+              height: 15,
             ),
             const Text(
               "NEW ARRIVAL",
@@ -102,7 +101,7 @@ class Home extends StatelessWidget {
             ),
             GridView.count(
                 padding: const EdgeInsets.symmetric(vertical: 30),
-                mainAxisSpacing: screenHeight / 50,
+                mainAxisSpacing: 20,
                 crossAxisCount: 2,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,

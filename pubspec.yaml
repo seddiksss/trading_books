@@ -38,6 +38,8 @@ dependencies:
   get: ^4.6.6
   introduction_screen: ^3.1.14
   get_storage: ^2.1.1
+  awesome_bottom_bar: ^1.2.4
+  babstrap_settings_screen: ^0.1.6
 
 dev_dependencies:
   flutter_test:
