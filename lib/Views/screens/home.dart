@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           shadowColor: Colors.black,
           elevation: 10,
-          toolbarHeight: 100,
+          toolbarHeight: screenHeight / 8,
           title: TextFormField(
             focusNode: focusNode,
             decoration: const InputDecoration(
