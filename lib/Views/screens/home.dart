@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trading_books/Views/widgets/bookCardHome.dart';
+import 'package:trading_books/Views/widgets/customCategoresButton.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -97,8 +98,21 @@ class Home extends StatelessWidget {
             ),
             const Divider(
                 height: 1.0, endIndent: 120, indent: 120, color: Colors.black),
-            const SizedBox(
-              height: 12,
+            SizedBox(
+              height: screenHeight / 35,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomCategoriesButton(
+                    title: "All", onPressed: () {}, index: 0),
+                CustomCategoriesButton(
+                    title: "New", onPressed: () {}, index: 1),
+                CustomCategoriesButton(
+                    title: "Used", onPressed: () {}, index: 1),
+                CustomCategoriesButton(
+                    title: "Excange", onPressed: () {}, index: 1),
+              ],
             ),
             GridView.count(
                 padding: const EdgeInsets.symmetric(vertical: 30),

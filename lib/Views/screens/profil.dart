@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
             BigUserCard(
               backgroundColor: Colors.red,
               userName: "Omar Baizou",
-              userProfilePic: AssetImage("assets/images/shape2.png"),
+              userProfilePic: const AssetImage("assets/images/shape2.png"),
               cardActionWidget: SettingsItem(
                 icons: Icons.edit,
                 iconStyle: IconStyle(
@@ -105,6 +105,7 @@ class Profile extends StatelessWidget {
                       value: controller.theme,
                       onChanged: (value) {
                         controller.theme = value;
+                        controller.update();
                       },
                     ),
                   ),
