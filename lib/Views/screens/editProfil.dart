@@ -18,19 +18,19 @@ class EditProfile extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 10, right: 10),
             child: Row(
               children: [
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Cancel",
                       style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
                     )),
                 SizedBox(width: screenwidth * 0.57),
                 TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     "Save",
                     style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
                   ),
@@ -47,7 +47,7 @@ class EditProfile extends StatelessWidget {
               "assets/images/shape2.png",
             ),
           ),
-          Row(
+          const Row(
             children: [
               SizedBox(
                 width: 9,
@@ -66,26 +66,26 @@ class EditProfile extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-              margin: EdgeInsets.only(left: 9, right: 9),
-              child: Profiltextfield(
+              margin: const EdgeInsets.only(left: 9, right: 9),
+              child: const Profiltextfield(
                 hint: "Adress",
               )),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-              margin: EdgeInsets.only(left: 9, right: 9),
-              child: Profiltextfield(
+              margin: const EdgeInsets.only(left: 9, right: 9),
+              child: const Profiltextfield(
                 hint: "City",
               )),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Row(
+          const Row(
             children: [
               SizedBox(
                 width: 9,
@@ -104,12 +104,12 @@ class EditProfile extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-              margin: EdgeInsets.only(left: 9, right: 9),
-              child: Profiltextfield(
+              margin: const EdgeInsets.only(left: 9, right: 9),
+              child: const Profiltextfield(
                 hint: "Phone number",
               )),
         ],
