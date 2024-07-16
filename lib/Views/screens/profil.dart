@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/profilController.dart';
-import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/screens/editProfil.dart';
 
 class Profile extends StatelessWidget {

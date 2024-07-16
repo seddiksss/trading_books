@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Middelwares/middelware.dart';
-import 'package:trading_books/Views/screens/bookDetails.dart';
 import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
@@ -26,8 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: InitialBindings(),
-      // initialRoute: AppRoutes.onboardingScreen,
-      home: BookDetails(),
+      initialRoute: AppRoutes.onboardingScreen,
       getPages: [
         GetPage(
             name: AppRoutes.onboardingScreen,
