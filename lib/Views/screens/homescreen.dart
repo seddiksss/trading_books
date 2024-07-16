@@ -58,7 +58,7 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 2)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Notif",
+                  title: "No",
                   iconData: Icons.email,
                   onPressed: () {
                     controller.changePage(3);
@@ -66,7 +66,7 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 3)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Prfl",
+                  title: "P",
                   iconData: Icons.person,
                   onPressed: () {
                     controller.changePage(4);
