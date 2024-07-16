@@ -6,12 +6,10 @@ import 'package:trading_books/Core/Constants/AppColor.dart';
 
 class CustomPageBotton extends GetView {
   final int index;
-  final String title;
   final IconData iconData;
   final void Function() onPressed;
   const CustomPageBotton(
       {super.key,
-      required this.title,
       required this.iconData,
       required this.onPressed,
       required this.index});
@@ -30,13 +28,6 @@ class CustomPageBotton extends GetView {
                 color: controller.currentPag == index
                     ? AppColor.primarycolor
                     : AppColor.grey,
-              ),
-              Text(
-                title,
-                style: TextStyle(
-                    color: controller.currentPag == index
-                        ? AppColor.primarycolor
-                        : AppColor.grey),
               ),
             ],
           );

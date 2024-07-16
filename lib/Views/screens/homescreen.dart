@@ -34,7 +34,6 @@ class BottomAppBarWidget extends StatelessWidget {
           // Image.asset('assets/images/day-with-rain.png'),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Home",
                   iconData: Icons.home,
                   onPressed: () {
                     controller.changePage(0);
@@ -42,7 +41,6 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 0)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Comm",
                   iconData: Icons.browse_gallery,
                   onPressed: () {
                     controller.changePage(1);
@@ -50,7 +48,6 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 1)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "Shelf",
                   iconData: Icons.card_giftcard,
                   onPressed: () {
                     controller.changePage(2);
@@ -58,7 +55,6 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 2)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "No",
                   iconData: Icons.email,
                   onPressed: () {
                     controller.changePage(3);
@@ -66,7 +62,6 @@ class BottomAppBarWidget extends StatelessWidget {
                   index: 3)),
           GetBuilder<HomeController>(
               builder: (controller) => CustomPageBotton(
-                  title: "P",
                   iconData: Icons.person,
                   onPressed: () {
                     controller.changePage(4);
