@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:trading_books/Views/widgets/bookCardHome.dart';
+import 'package:get/get.dart';
+import 'package:trading_books/Controllers/homeController.dart';
 import 'package:trading_books/Views/widgets/customCategoresButton.dart';
 
-class Home extends StatelessWidget {
+class Home extends GetView<HomeController> {
   const Home({super.key});
 
   @override
@@ -101,97 +102,46 @@ class Home extends StatelessWidget {
             SizedBox(
               height: screenHeight / 35,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomCategoriesButton(
-                    title: "All", onPressed: () {}, index: 0),
-                CustomCategoriesButton(
-                    title: "New", onPressed: () {}, index: 1),
-                CustomCategoriesButton(
-                    title: "Used", onPressed: () {}, index: 1),
-                CustomCategoriesButton(
-                    title: "Excange", onPressed: () {}, index: 1),
-              ],
-            ),
-            GridView.count(
-                childAspectRatio: screenHeight / 1273,
-                mainAxisSpacing: screenHeight / 20,
-                crossAxisCount: 2,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
+            GetBuilder<HomeController>(
+              builder: (controller) => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  BookCardHome(
-                    onTap: () {},
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
+                  CustomCategoriesButton(
+                    title: "All",
+                    onPressed: () {
+                      controller.changeCat(0);
+                    },
+                    index: 0,
                   ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
+                  CustomCategoriesButton(
+                    title: "New",
+                    onPressed: () {
+                      controller.changeCat(1);
+                    },
+                    index: 1,
                   ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                  BookCardHome(
-                    color: Colors.blueAccent,
-                    picture: "assets/images/book2.png",
-                    title: "ANNUAL REPORT",
-                    prix: "120 DH",
-                    onTap: () {},
-                  ),
-                ]),
+                  CustomCategoriesButton(
+                      title: "Used",
+                      onPressed: () {
+                        controller.changeCat(2);
+                      },
+                      index: 2),
+                  CustomCategoriesButton(
+                      title: "Exchange",
+                      onPressed: () {
+                        controller.changeCat(3);
+                      },
+                      index: 3),
+                ],
+              ),
+            ),
+            GetBuilder<HomeController>(
+                builder: (controller) => ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: controller.itemsList.length,
+                    itemBuilder: (context, i) =>
+                        controller.itemsList[controller.currentCategories])),
           ],
         ),
       ),

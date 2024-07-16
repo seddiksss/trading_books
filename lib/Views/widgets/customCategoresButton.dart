@@ -27,7 +27,7 @@ class CustomCategoriesButton extends GetView {
               Text(
                 title,
                 style: TextStyle(
-                    color: controller.currentPag == index
+                    color: controller.currentCategories == index
                         ? AppColor.primarycolor
                         : AppColor.grey),
               ),
@@ -36,7 +36,7 @@ class CustomCategoriesButton extends GetView {
                 width: 5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: controller.currentPag == index
+                  color: controller.currentCategories == index
                       ? AppColor.primarycolor
                       : AppColor.grey,
                 ),
