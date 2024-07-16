@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trading_books/Views/widgets/profilTextfield.dart';
 
 class EditProfile extends StatelessWidget {
@@ -14,8 +15,29 @@ class EditProfile extends StatelessWidget {
         title: const Text('Edit Profile'),
         centerTitle: true,
       ),
-      body: Column(
+      body: ListView(
         children: [
+          Container(
+            margin: const EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "Cancel",
+                      style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
+                    )),
+                SizedBox(width: screenwidth * 0.57),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Save",
+                    style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
+                  ),
+                )
+              ],
+            ),
+          ),
           Container(
             height: screenheight * 0.19,
             decoration: BoxDecoration(
@@ -48,7 +70,7 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "Adress",
               )),
@@ -56,7 +78,7 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "City",
               )),
@@ -86,31 +108,10 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "Phone number",
               )),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            child: Row(
-              children: [
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Cancel",
-                      style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
-                    )),
-                SizedBox(width: screenwidth * 0.57),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Save",
-                    style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
-                  ),
-                )
-              ],
-            ),
-          ),
         ],
       ),
     );
