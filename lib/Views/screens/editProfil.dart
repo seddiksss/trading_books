@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Views/widgets/profilTextfield.dart';
 
 class EditProfile extends StatelessWidget {
@@ -14,13 +16,13 @@ class EditProfile extends StatelessWidget {
         title: const Text('Edit Profile'),
         centerTitle: true,
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             height: screenheight * 0.19,
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.black)),
+                border: Border.all(color: AppColor.black)),
             child: Image.asset(
               "assets/images/shape2.png",
             ),
@@ -48,7 +50,7 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "Adress",
               )),
@@ -56,7 +58,7 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "City",
               )),
@@ -86,27 +88,29 @@ class EditProfile extends StatelessWidget {
             height: 20,
           ),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 9),
+              margin: const EdgeInsets.only(left: 9, right: 9),
               child: const Profiltextfield(
                 hint: "Phone number",
               )),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Cancel",
-                      style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
-                    )),
-                SizedBox(width: screenwidth * 0.57),
-                TextButton(
+                MaterialButton(
+                  color: AppColor.primarycolor,
                   onPressed: () {},
-                  child: const Text(
-                    "Save",
-                    style: TextStyle(color: Color.fromARGB(255, 87, 85, 85)),
-                  ),
+                  child: const Text("Cancel",
+                      style: TextStyle(color: AppColor.black)),
+                ),
+                SizedBox(
+                  width: screenwidth * 0.04,
+                  height: screenheight * 0.10,
+                ),
+                MaterialButton(
+                  color: AppColor.primarycolor,
+                  onPressed: () {},
+                  child: Text("Save", style: TextStyle(color: AppColor.black)),
                 )
               ],
             ),
