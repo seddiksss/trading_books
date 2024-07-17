@@ -9,13 +9,9 @@ class Profiltextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Container(
-        child: Expanded(
-          child: TextFormField(
-            decoration: InputDecoration(hintText: hint),
-          ),
-        ),
+    return Expanded(
+      child: TextFormField(
+        decoration: InputDecoration(hintText: hint),
       ),
     );
   }
