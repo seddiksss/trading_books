@@ -1,3 +1,6 @@
 class AppImages {
-  static const String book4 = "assets/images/book6.png";
+  static String ImageName(String name) {
+    String image = "assets/images/$name";
+    return image;
+  }
 }

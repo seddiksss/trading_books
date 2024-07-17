@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trading_books/Controllers/homeController.dart';
 import 'package:trading_books/Views/widgets/bookCardHome.dart';
 
-class All extends StatelessWidget {
+class All extends GetView<HomeController> {
   const All({super.key});
 
   @override
@@ -17,7 +19,9 @@ class All extends StatelessWidget {
         shrinkWrap: true,
         children: [
           BookCardHome(
-            onTap: () {},
+            onTap: () {
+              controller.goToBookDetails();
+            },
             color: Colors.blueAccent,
             picture: "assets/images/book2.png",
             title: "ANNUAL REPORT",

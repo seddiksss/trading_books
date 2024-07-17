@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
+import 'package:trading_books/Middelwares/middelware.dart';
+import 'package:trading_books/Views/screens/bookDetails.dart';
 import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
@@ -10,10 +12,14 @@ import 'package:trading_books/Views/screens/singup.dart';
 
 List<GetPage<dynamic>>? getPages = [
   GetPage(
-    name: AppRoutes.onboardingScreen,
-    page: () => const OnboardingScreen(),
+    name: AppRoutes.bookDetails,
+    page: () => const BookDetails(),
     // middlewares: [AppMiddleWare()]
   ),
+  GetPage(
+      name: AppRoutes.onboardingScreen,
+      page: () => const OnboardingScreen(),
+      middlewares: [AppMiddleWare()]),
   GetPage(
     name: AppRoutes.singin,
     page: () => const SingIn(),

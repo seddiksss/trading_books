@@ -91,7 +91,7 @@ class EditProfile extends StatelessWidget {
                 hint: "Phone number",
               )),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 TextButton(
