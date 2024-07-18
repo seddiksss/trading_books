@@ -3,12 +3,14 @@ import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 
 class Bankcard extends StatelessWidget {
-  const Bankcard(
-      {super.key,
-      required this.fulname,
-      required this.month,
-      required this.year,
-      required this.CardNumber});
+  const Bankcard({
+    super.key,
+    required this.fulname,
+    required this.month,
+    required this.year,
+    required this.CardNumber,
+  });
+
   final String fulname;
   final String month;
   final String year;
@@ -50,13 +52,15 @@ class Bankcard extends StatelessWidget {
                   "$fulname",
                   style: const TextStyle(color: AppColor.white),
                 ),
-                SizedBox(
-                  width: screenWidth * 0.39,
+                const Spacer(
+                  flex: 2,
                 ),
-                Text(
-                  "$month/$year",
-                  style: const TextStyle(
-                    color: AppColor.white,
+                Expanded(
+                  child: Text(
+                    "$month/$year",
+                    style: const TextStyle(
+                      color: AppColor.white,
+                    ),
                   ),
                 )
               ],

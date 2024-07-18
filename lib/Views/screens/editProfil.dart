@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:trading_books/Core/Constants/AppColor.dart';
-import 'package:trading_books/Views/widgets/profilTextfield.dart';
+import 'package:trading_books/Views/widgets/profileWidgets/profilTextfield.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
