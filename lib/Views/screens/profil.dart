@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/profilController.dart';
 import 'package:trading_books/Views/screens/editProfil.dart';
+import 'package:trading_books/Views/screens/payment.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -42,7 +43,9 @@ class Profile extends StatelessWidget {
               builder: (controller) => SettingsGroup(
                 items: [
                   SettingsItem(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(Payment());
+                    },
                     icons: Icons.payment,
                     iconStyle: IconStyle(
                       iconsColor: Colors.white,
