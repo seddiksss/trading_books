@@ -25,8 +25,7 @@ class BookDetails extends GetView<BookDetailsController> {
                   height: screenHeight / 1.6,
                   child: PageView.builder(
                       onPageChanged: (val) {
-                        controller.currentimage = val;
-                        controller.update();
+                        controller.slideImage(val);
                       },
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.imageList.length,

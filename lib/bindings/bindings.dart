@@ -4,6 +4,7 @@ import 'package:trading_books/Controllers/homeController.dart';
 import 'package:trading_books/Controllers/homeScreenController.dart';
 import 'package:trading_books/Controllers/onboardingScreenController.dart';
 import 'package:trading_books/Controllers/profilController.dart';
+import 'package:trading_books/Controllers/shelfController.dart';
 
 class InitialBindings extends Bindings {
   @override
@@ -13,5 +14,6 @@ class InitialBindings extends Bindings {
     Get.put(HomeScreenController());
     Get.put(ProfilController());
     Get.put(BookDetailsController());
+    Get.put(ShelfController());
   }
 }

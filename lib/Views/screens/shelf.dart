@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/bookDetailsController.dart';
+import 'package:trading_books/Controllers/shelfController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 
-class Shelf extends GetView<BookDetailsController> {
+class Shelf extends GetView<ShelfController> {
   const Shelf({super.key});
 
   @override
@@ -17,7 +18,8 @@ class Shelf extends GetView<BookDetailsController> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Title'),
+          title: const Text('Add Your Book'),
+          centerTitle: true,
         ),
         body: ListView(
           children: [
@@ -30,11 +32,10 @@ class Shelf extends GetView<BookDetailsController> {
                     height: screenHeight / 1.6,
                     child: PageView.builder(
                         onPageChanged: (val) {
-                          controller.currentimage = val;
-                          controller.update();
+                          controller.slideImage(val);
                         },
                         scrollDirection: Axis.horizontal,
-                        itemCount: controller.imageList.length,
+                        itemCount: 4,
                         itemBuilder: (context, i) {
                           return Container(
                             width: screenHeight / 2.25,
@@ -79,13 +80,15 @@ class Shelf extends GetView<BookDetailsController> {
                                                 fontSize: 17),
                                           ),
                                         ]),
-                                    onPressed: () {}),
+                                    onPressed: () {
+                                      controller.showMyDialog(context);
+                                    }),
                               ),
                             ),
                           );
                         }),
                   ),
-                  GetBuilder<BookDetailsController>(
+                  GetBuilder<ShelfController>(
                       builder: (controller) => SizedBox(
                             height: Get.height / 25,
                             width: Get.width / 6,
@@ -93,7 +96,7 @@ class Shelf extends GetView<BookDetailsController> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 ...List.generate(
-                                  controller.imageList.length,
+                                  4,
                                   (index) => AnimatedContainer(
                                     duration: const Duration(milliseconds: 500),
                                     decoration: BoxDecoration(

@@ -13,4 +13,9 @@ class BookDetailsController extends GetxController {
     AppImages.ImageName("home.png"),
     AppImages.ImageName("home.png"),
   ];
+
+  slideImage(int val) {
+    currentimage = val;
+    update();
+  }
 }
