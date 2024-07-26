@@ -2,11 +2,13 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trading_books/Controllers/homeController.dart';
 import 'package:trading_books/Controllers/profilController.dart';
+import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/screens/editProfil.dart';
 import 'package:trading_books/Views/screens/payment.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends GetView<HomeController> {
   const Profile({super.key});
 
   @override
@@ -40,11 +42,11 @@ class Profile extends StatelessWidget {
               ),
             ),
             GetBuilder<ProfilController>(
-              builder: (controller) => SettingsGroup(
+              builder: (controller2) => SettingsGroup(
                 items: [
                   SettingsItem(
                     onTap: () {
-                      Get.to(Payment());
+                      controller.changePage(5);
                     },
                     icons: Icons.payment,
                     iconStyle: IconStyle(
@@ -96,7 +98,7 @@ class Profile extends StatelessWidget {
                   ),
                   SettingsItem(
                     onTap: () {
-                      controller.theme = true;
+                      controller2.theme = true;
                     },
                     icons: Icons.dark_mode_rounded,
                     iconStyle: IconStyle(
@@ -107,9 +109,9 @@ class Profile extends StatelessWidget {
                     title: 'Dark mode',
                     subtitle: "Automatic",
                     trailing: Switch.adaptive(
-                      value: controller.theme,
+                      value: controller2.theme,
                       onChanged: (value) {
-                        controller.theme = value;
+                        controller2.theme = value;
                         controller.update();
                       },
                     ),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/screens/community.dart';
 import 'package:trading_books/Views/screens/home.dart';
+import 'package:trading_books/Views/screens/payment.dart';
 import 'package:trading_books/Views/screens/profil.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
 import 'package:trading_books/Views/screens/shelf.dart';
@@ -19,7 +20,8 @@ class HomeController extends GetxController {
     const Community(),
     const Shelf(),
     const Notifications(),
-    const Profile()
+    const Profile(),
+    const Payment(),
   ];
   List<Widget> itemsList = [
     const All(),
@@ -27,6 +29,7 @@ class HomeController extends GetxController {
     const Used(),
     const Exchange(),
   ];
+
   changePage(int index) {
     currentPag = index;
     update();

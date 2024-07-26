@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Views/widgets/profileWidgets/BankCard.dart';
 import 'package:trading_books/Views/widgets/profileWidgets/paymentMethode.dart';
-import 'package:trading_books/Views/widgets/profileWidgets/profilTextfield.dart';
 
 class Payment extends StatelessWidget {
   const Payment({super.key});
