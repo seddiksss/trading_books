@@ -12,8 +12,27 @@ class InitialBindings extends Bindings {
     Get.put(OnboardingScreenController());
     Get.put(HomeController());
     Get.put(HomeScreenController());
+    // Get.put(BookDetailsController());
     Get.put(ProfilController());
-    Get.put(BookDetailsController());
+    // Get.put(ShelfController());
+  }
+}
+
+class ShelfBindings extends Bindings {
+  @override
+  void dependencies() {
     Get.put(ShelfController());
+  }
+}
+
+class ProfileBindings extends Bindings {
+  @override
+  void dependencies() {}
+}
+
+class BookDetailsBindings extends Bindings {
+  @override
+  void dependencies() {
+    Get.put(BookDetailsController());
   }
 }

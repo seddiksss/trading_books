@@ -6,16 +6,24 @@ import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
 import 'package:trading_books/Views/screens/onboardingscreen.dart';
+import 'package:trading_books/Views/screens/payment.dart';
 import 'package:trading_books/Views/screens/profil.dart';
 import 'package:trading_books/Views/screens/singin.dart';
 import 'package:trading_books/Views/screens/singup.dart';
+import 'package:trading_books/bindings/bindings.dart';
 
 List<GetPage<dynamic>>? getPages = [
   GetPage(
-    name: AppRoutes.bookDetails,
-    page: () => const BookDetails(),
+    name: AppRoutes.payment,
+    page: () => const Payment(),
     // middlewares: [AppMiddleWare()]
   ),
+  GetPage(
+      name: AppRoutes.bookDetails,
+      page: () => const BookDetails(),
+      binding: BookDetailsBindings()
+      // middlewares: [AppMiddleWare()]
+      ),
   GetPage(
       name: AppRoutes.onboardingScreen,
       page: () => const OnboardingScreen(),
@@ -51,8 +59,9 @@ List<GetPage<dynamic>>? getPages = [
     // middlewares: [AppMiddleWare()]
   ),
   GetPage(
-    name: AppRoutes.profile,
-    page: () => const Profile(),
-    // middlewares: [AppMiddleWare()]
-  ),
+      name: AppRoutes.profile,
+      page: () => const Profile(),
+      binding: ProfileBindings()
+      // middlewares: [AppMiddleWare()]
+      ),
 ];

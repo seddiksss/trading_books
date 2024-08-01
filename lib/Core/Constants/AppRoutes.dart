@@ -10,6 +10,7 @@ class AppRoutes {
   static String notifications = "/notifications";
   static String profile = "/profile";
   static String bookDetails = "/bookDetails";
+  static String payment = "/payment";
 
   // static String singin = "/singin";
   // static String singin = "/singin";

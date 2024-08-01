@@ -104,7 +104,8 @@ class SingIn extends StatelessWidget {
                           style: TextStyle(color: AppColor.white),
                         ),
                         onPressed: () {
-                          Get.offAll(const HomeScreen());
+                          Get.offAll(() => const HomeScreen());
+
                           // Get.toNamed(AppRoutes.homeScreen);
                         })
                   ],

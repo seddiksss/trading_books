@@ -29,6 +29,18 @@ class HomeController extends GetxController {
     const Used(),
     const Exchange(),
   ];
+  List<ImageProvider> imagesList = [];
+  List<ImageProvider> newimagesList = [];
+  List<ImageProvider> newimagesListFix = [];
+  List<ImageProvider> usedimagesList = [];
+  List<ImageProvider> exchangeimagesList = [];
+
+  List allitemsList = [];
+  List newitemsList = [];
+
+  List useditemsList = [];
+  List exchangeitemsList = [];
+  // Map newitemsMap = ;
 
   changePage(int index) {
     currentPag = index;
@@ -40,7 +52,41 @@ class HomeController extends GetxController {
     update();
   }
 
-  goToBookDetails() {
-    Get.toNamed(AppRoutes.bookDetails);
+  goToBookNewDetails(int index) {
+    print('allitemsList:${allitemsList[index]}');
+
+    allitemsList[index]['categorie'] = "New";
+
+    Get.toNamed(AppRoutes.bookDetails, arguments: {
+      'all': allitemsList[index],
+      'new': newitemsList.isEmpty ? null : newitemsList[index],
+      // 'images': imagesList,
+      'newimages': newimagesList,
+    });
+    update();
+  }
+
+  goToBookUsedDetails(int index) {
+    print('allitemsList:${allitemsList}');
+    allitemsList[index]['categorie'] = "Used";
+    Get.toNamed(AppRoutes.bookDetails, arguments: {
+      'all': allitemsList[index],
+      'used': useditemsList.isEmpty ? null : useditemsList[index],
+      // 'images': imagesList,
+      'usedimages': usedimagesList,
+    });
+    update();
+  }
+
+  goToBookExchangeDetails(int index) {
+    allitemsList[index]['categorie'] = "Exchange";
+
+    Get.toNamed(AppRoutes.bookDetails, arguments: {
+      'all': allitemsList[index],
+      'exchange': exchangeitemsList.isEmpty ? null : exchangeitemsList[index],
+      // 'images': imagesList,
+      'exchangeimages': exchangeimagesList,
+    });
+    update();
   }
 }

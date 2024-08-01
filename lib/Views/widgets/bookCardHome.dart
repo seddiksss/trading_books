@@ -4,14 +4,16 @@ class BookCardHome extends StatelessWidget {
   const BookCardHome({
     super.key,
     required this.prix,
+    this.categorie,
     required this.title,
     required this.picture,
     required this.color,
     required this.onTap,
   });
   final String prix;
+  final String? categorie;
   final String title;
-  final String picture;
+  final ImageProvider<Object> picture;
   final dynamic color;
   final void Function()? onTap;
   @override
@@ -38,8 +40,8 @@ class BookCardHome extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Image.asset(
-                  picture,
+                child: Image(
+                  image: picture,
                   fit: BoxFit.contain,
                   height: screenHeight / 5,
                 ),

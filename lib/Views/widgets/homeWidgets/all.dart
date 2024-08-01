@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
+import 'package:trading_books/Core/Constants/AppColor.dart';
+import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/widgets/bookCardHome.dart';
 
-class All extends GetView<HomeController> {
+class All extends StatelessWidget {
   const All({super.key});
 
   @override
@@ -11,85 +13,38 @@ class All extends GetView<HomeController> {
     final mediaQuery = MediaQuery.of(context);
     // final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
-    return GridView.count(
-        childAspectRatio: screenHeight / 1273,
-        mainAxisSpacing: screenHeight / 20,
-        crossAxisCount: 2,
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        children: [
-          BookCardHome(
-            onTap: () {
-              controller.goToBookDetails();
-            },
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-          BookCardHome(
-            color: Colors.blueAccent,
-            picture: "assets/images/book2.png",
-            title: "ANNUAL REPORT",
-            prix: "120 DH",
-            onTap: () {},
-          ),
-        ]);
+    return GetBuilder<HomeController>(builder: (controller) {
+      return GridView.count(
+          childAspectRatio: screenHeight / 1273,
+          mainAxisSpacing: screenHeight / 20,
+          crossAxisCount: 2,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          children: List.generate(
+            controller.allitemsList.length,
+            (index) => Stack(
+              children: [
+                BookCardHome(
+                  onTap: () {
+                    // controller.goToBookDetails(index);
+                    print(controller.allitemsList.length);
+                  },
+                  color: Colors.blueAccent,
+                  picture: controller.allitemsList[index]['picture'],
+                  title: controller.allitemsList[index]['title'],
+                  prix: controller.allitemsList[index]['prix'],
+                ),
+                Positioned(
+                    top: 10,
+                    right: 30,
+                    child: Text(
+                      controller.allitemsList[index]['categorie'],
+                      style:
+                          const TextStyle(fontSize: 14, color: AppColor.white),
+                    ))
+              ],
+            ),
+          ));
+    });
   }
 }

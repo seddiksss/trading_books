@@ -139,7 +139,7 @@ class Home extends GetView<HomeController> {
                 builder: (controller) => ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: controller.itemsList.length,
+                    itemCount: 1,
                     itemBuilder: (context, i) =>
                         controller.itemsList[controller.currentCategories])),
           ],
