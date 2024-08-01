@@ -26,11 +26,10 @@ class All extends StatelessWidget {
               children: [
                 BookCardHome(
                   onTap: () {
-                    // controller.goToBookDetails(index);
-                    print(controller.allitemsList.length);
+                    controller.goToBookDetails(controller.allitemsList, index);
                   },
                   color: Colors.blueAccent,
-                  picture: controller.allitemsList[index]['picture'],
+                  picture: controller.allitemsList[index]['pictures'][0],
                   title: controller.allitemsList[index]['title'],
                   prix: controller.allitemsList[index]['prix'],
                 ),

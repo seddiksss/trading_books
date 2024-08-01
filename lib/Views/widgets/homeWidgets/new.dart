@@ -19,16 +19,19 @@ class New extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: List.generate(
-            controller.newitemsList.length,
-            (index) => BookCardHome(
-              onTap: () {
-                controller.goToBookNewDetails(index);
-              },
-              color: Colors.blueAccent,
-              picture: controller.newitemsList[index]['picture'],
-              title: controller.newitemsList[index]['title'],
-              prix: controller.newitemsList[index]['prix'],
-            ),
+            controller.allitemsList.length,
+            (index) => controller.allitemsList[index]['categorie'] == "New"
+                ? BookCardHome(
+                    onTap: () {
+                      controller.goToBookDetails(
+                          controller.allitemsList, index);
+                    },
+                    color: Colors.blueAccent,
+                    picture: controller.allitemsList[index]['pictures'][0],
+                    title: controller.allitemsList[index]['title'],
+                    prix: controller.allitemsList[index]['prix'],
+                  )
+                : const Center(child: Text("no new items")),
           ));
     });
   }

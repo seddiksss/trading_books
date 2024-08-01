@@ -8,6 +8,9 @@ class BookDetailsController extends GetxController {
   GlobalKey<FormState> formState = GlobalKey();
   int currentimage = 0;
 
+  int index = 0;
+  List itemsList = [];
+
   List imagesList = [];
   List<ImageProvider<Object>> newimagesList = [];
   List<ImageProvider<Object>> usedimagesList = [];
@@ -29,34 +32,32 @@ class BookDetailsController extends GetxController {
 
   @override
   void onInit() {
-    print(" Categorie ..${Get.arguments['all']['categorie']}");
-    if (Get.arguments['all']['categorie'] == "New") {
-      itemsMap = Get.arguments['new'];
-    } else if (Get.arguments['all']['categorie'] == "Used") {
-      itemsMap = Get.arguments['used'];
-    } else if (Get.arguments['all']['categorie'] == "Exchange") {
-      itemsMap = Get.arguments['exchange'];
-    } else {
-      itemsMap = Get.arguments['all'];
-    }
+    index = Get.arguments['index'];
+    itemsList = Get.arguments['itemsList'];
 
-    // imagesList = Get.arguments['images'];??
-    // newimagesList = Get.arguments['newimages'];
-    // usedimagesList = Get.arguments['usedimages'];
-    // exchangeimagesList = Get.arguments['exchangeimages'];
+    // print(" Categorie ..${Get.arguments['all']['categorie']}");
+    // if (Get.arguments['all']['categorie'] == "New") {
+    //   itemsMap = Get.arguments['new'];
+    // } else if (Get.arguments['all']['categorie'] == "Used") {
+    //   itemsMap = Get.arguments['used'];
+    // } else if (Get.arguments['all']['categorie'] == "Exchange") {
+    //   itemsMap = Get.arguments['exchange'];
+    // } else {
+    //   itemsMap = Get.arguments['all'];
+    // }
 
-    if (Get.arguments['all']['categorie'] == "New") {
-      imagesList = Get.arguments['newimages'];
-    } else if (Get.arguments['all']['categorie'] == "Used") {
-      imagesList = Get.arguments['usedimages'];
-    } else if (Get.arguments['all']['categorie'] == "Exchange") {
-      imagesList = Get.arguments['exchangeimages'];
-    } else {
-      imagesList = Get.arguments['images'];
-    }
-    print("....onInit()");
-    print(".items...$itemsMap");
-    print(".images...$imagesList");
+    // if (Get.arguments['all']['categorie'] == "New") {
+    //   imagesList = Get.arguments['newimages'];
+    // } else if (Get.arguments['all']['categorie'] == "Used") {
+    //   imagesList = Get.arguments['usedimages'];
+    // } else if (Get.arguments['all']['categorie'] == "Exchange") {
+    //   imagesList = Get.arguments['exchangeimages'];
+    // } else {
+    //   imagesList = Get.arguments['images'];
+    // }
+    // print("....onInit()");
+    // print(".items...$itemsMap");
+    // print(".images...$imagesList");
 
     super.onInit();
 

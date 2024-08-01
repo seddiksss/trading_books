@@ -253,51 +253,29 @@ class Shelf extends GetView<ShelfController> {
                   ),
                   onPressed: () {
                     print("drop val : ${controller.dropVal}");
-                    homecont.newimagesList.clear();
-                    homecont.usedimagesList.clear();
-                    homecont.exchangeimagesList.clear();
-                    homecont.imagesList.clear();
-                    homecont.allitemsList.clear();
+                    // homecont.newimagesList.clear();
+                    // homecont.usedimagesList.clear();
+                    // homecont.exchangeimagesList.clear();
+                    // homecont.imagesList.clear();
+                    // homecont.allitemsList.clear();
 
                     controller.j = 4;
                     homecont.imagesList.addAll(controller.pickedImagepath);
                     homecont.allitemsList.add({
-                      'picture': controller.pickedImagepath[0],
+                      'pictures': homecont.imagesList,
                       'title': controller.title.text,
                       'author': controller.author.text,
                       'prix': controller.prix.text,
                       'categorie': controller.dropVal
                     });
+                    print("allitemsList::${homecont.allitemsList}");
 
                     if (controller.dropVal == "New") {
-                      homecont.newitemsList.add({
-                        'picture': controller.pickedImagepath[0],
-                        'title': controller.title.text,
-                        'author': controller.author.text,
-                        'prix': controller.prix.text,
-                        'categorie': "New"
-                      });
-                      homecont.newimagesList.addAll(controller.pickedImagepath);
+                      homecont.newitemsList.addAll(homecont.allitemsList);
                     } else if (controller.dropVal == "Used") {
-                      homecont.useditemsList.add({
-                        'picture': controller.pickedImagepath[0],
-                        'title': controller.title.text,
-                        'author': controller.author.text,
-                        'prix': controller.prix.text,
-                        'categorie': "Used"
-                      });
-                      homecont.usedimagesList
-                          .addAll(controller.pickedImagepath);
+                      homecont.useditemsList.addAll(homecont.allitemsList);
                     } else {
-                      homecont.exchangeitemsList.add({
-                        'picture': controller.pickedImagepath[0],
-                        'title': controller.title.text,
-                        'author': controller.author.text,
-                        'prix': controller.prix.text,
-                        'categorie': "Exchange"
-                      });
-                      homecont.exchangeimagesList
-                          .addAll(controller.pickedImagepath);
+                      homecont.exchangeitemsList.addAll(homecont.allitemsList);
                     }
                     Get.snackbar("Success", "item has been listed",
                         backgroundColor: AppColor.primarycolor,

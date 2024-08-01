@@ -19,16 +19,19 @@ class Used extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: List.generate(
-            controller.useditemsList.length,
-            (index) => BookCardHome(
-              onTap: () {
-                controller.goToBookUsedDetails(index);
-              },
-              color: Colors.blueAccent,
-              picture: controller.useditemsList[index]['picture'],
-              title: controller.useditemsList[index]['title'],
-              prix: controller.useditemsList[index]['prix'],
-            ),
+            controller.allitemsList.length,
+            (index) => controller.allitemsList[index]['categorie'] == "Used"
+                ? BookCardHome(
+                    onTap: () {
+                      controller.goToBookDetails(
+                          controller.allitemsList, index);
+                    },
+                    color: Colors.blueAccent,
+                    picture: controller.allitemsList[index]['pictures'][0],
+                    title: controller.allitemsList[index]['title'],
+                    prix: controller.allitemsList[index]['prix'],
+                  )
+                : Center(child: Text("no Used items")),
           ));
     });
   }

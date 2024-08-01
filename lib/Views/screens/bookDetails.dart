@@ -29,7 +29,8 @@ class BookDetails extends StatelessWidget {
                           controller.slideImage(val);
                         },
                         scrollDirection: Axis.horizontal,
-                        itemCount: controller.imagesList.length,
+                        itemCount: controller
+                            .itemsList[controller.index]['pictures'].length,
                         itemBuilder: (context, i) {
                           return Container(
                             width: screenHeight / 2.25,
@@ -45,7 +46,8 @@ class BookDetails extends StatelessWidget {
                               ],
                             ),
                             child: Image(
-                              image: controller.imagesList[i],
+                              image: controller.itemsList[controller.index]
+                                  ['pictures'][i],
                               fit: BoxFit.fill,
                             ),
                           );
@@ -59,7 +61,9 @@ class BookDetails extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 ...List.generate(
-                                  controller.imagesList.length,
+                                  controller
+                                      .itemsList[controller.index]['pictures']
+                                      .length,
                                   (index) => AnimatedContainer(
                                     duration: const Duration(milliseconds: 500),
                                     decoration: BoxDecoration(
@@ -86,21 +90,21 @@ class BookDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
               child: Text(
-                controller.itemsMap['title'],
+                controller.itemsList[controller.index]['title'],
                 style: TextStyle(fontSize: Get.width / 15),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
               child: Text(
-                controller.itemsMap['author'],
+                controller.itemsList[controller.index]['author'],
                 style: TextStyle(fontSize: Get.width / 25),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
               child: Text(
-                controller.itemsMap['prix'],
+                controller.itemsList[controller.index]['prix'],
                 style: TextStyle(fontSize: Get.width / 25),
               ),
             ),
