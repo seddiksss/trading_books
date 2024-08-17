@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/singUpController.dart';
@@ -24,8 +25,7 @@ class SingUp extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
                   children: [
                     const Center(
                         child: Text(
@@ -36,8 +36,13 @@ class SingUp extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
+                    const Text(
+                      "Email",
+                      style: TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.bold, height: 2),
+                    ),
                     SingInUpFormField(
-                      hinttext: 'Enter your email address',
+                      hinttext: 'Enter your email',
                       iconData: const Icon(Icons.email),
                       label: "singUp",
                       obscureText: false,
@@ -46,16 +51,26 @@ class SingUp extends StatelessWidget {
                         return validInput(val!, 5, 40, InputTypes.email);
                       },
                     ),
+                    const Text(
+                      "Password",
+                      style: TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.bold, height: 2),
+                    ),
                     SingInUpFormField(
                       hinttext: 'Enter your password',
-                      iconData: const Icon(Icons.lock),
+                      iconData: const Icon(Icons.remove_red_eye),
                       label: "password",
                       obscureText: true,
                       mycontroller: controller.passwordController,
                     ),
+                    const Text(
+                      "Confirm password",
+                      style: TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.bold, height: 2),
+                    ),
                     SingInUpFormField(
                       hinttext: 'repeat your password',
-                      iconData: const Icon(Icons.lock),
+                      iconData: const Icon(Icons.remove_red_eye),
                       label: "password",
                       obscureText: true,
                       mycontroller: controller.repeatpasswordController,
@@ -66,11 +81,27 @@ class SingUp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)),
                         color: AppColor.primarycolor,
                         child: const Text(
-                          "Go to home",
+                          "Regester",
                           style: TextStyle(color: AppColor.white),
                         ),
-                        onPressed: () {
-                          Get.toNamed(AppRoutes.homeScreen);
+                        onPressed: () async {
+                          try {
+                            final credential = await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                              email: controller.emailController.text,
+                              password: controller.passwordController.text,
+                            );
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'weak-password') {
+                              print('The password provided is too weak.');
+                            } else if (e.code == 'email-already-in-use') {
+                              print(
+                                  'The account already exists for that email.');
+                            }
+                          } catch (e) {
+                            print("===========$e");
+                          }
+                          // Get.toNamed(AppRoutes.homeScreen);
                         })
                   ],
                 ),

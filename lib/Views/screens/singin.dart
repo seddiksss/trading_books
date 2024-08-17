@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/singInController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
+import 'package:trading_books/Core/Constants/AppImages.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Core/functions/validInput.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
@@ -25,8 +26,8 @@ class SingIn extends StatelessWidget {
               child: Form(
                 autovalidateMode: AutovalidateMode.always,
                 key: controller.formstate,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Center(
                         child: Text(
@@ -37,20 +38,28 @@ class SingIn extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
+                    const Text(
+                      "Email",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold, height: 2),
+                    ),
                     SingInUpFormField(
-                      hinttext: 'Enter your email address',
+                      hinttext: 'Enter your email',
                       iconData: const Icon(Icons.email),
-                      label: "login",
                       obscureText: false,
                       mycontroller: controller.emailController,
                       validator: (val) {
                         return validInput(val!, 5, 40, InputTypes.email);
                       },
                     ),
+                    const Text(
+                      "Password",
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold, height: 2),
+                    ),
                     SingInUpFormField(
                       hinttext: 'Enter your password',
-                      iconData: const Icon(Icons.lock),
-                      label: "password",
+                      iconData: const Icon(Icons.remove_red_eye),
                       obscureText: true,
                       mycontroller: controller.passwordController,
                     ),
@@ -69,10 +78,56 @@ class SingIn extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 15,
+                    ),
+                    MaterialButton(
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        color: AppColor.primarycolor,
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(color: AppColor.white),
+                        ),
+                        onPressed: () {
+                          Get.offAll(() => const HomeScreen());
+
+                          // Get.toNamed(AppRoutes.homeScreen);
+                        }),
+                    const Center(
+                      child: Text(
+                        "--------------  Or  ---------------",
+                        style: TextStyle(fontSize: 15, height: 2),
+                      ),
+                    ),
+                    MaterialButton(
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        color: AppColor.primarycolor,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Login With Google",
+                              style: TextStyle(color: AppColor.white),
+                            ),
+                            Image.asset(
+                              AppImages.ImageName("google.png"),
+                              width: 40,
+                            )
+                          ],
+                        ),
+                        onPressed: () {
+                          // Get.offAll(() => const HomeScreen());
+
+                          // Get.toNamed(AppRoutes.homeScreen);
+                        }),
+                    const SizedBox(
+                      height: 15,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(" Don't have an account "),
                         InkWell(
@@ -91,23 +146,6 @@ class SingIn extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    MaterialButton(
-                        padding: const EdgeInsets.symmetric(horizontal: 60),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        color: AppColor.primarycolor,
-                        child: const Text(
-                          "Go to home",
-                          style: TextStyle(color: AppColor.white),
-                        ),
-                        onPressed: () {
-                          Get.offAll(() => const HomeScreen());
-
-                          // Get.toNamed(AppRoutes.homeScreen);
-                        })
                   ],
                 ),
               ),

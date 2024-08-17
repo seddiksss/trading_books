@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846767057783",
+    "project_id": "tradingbooks-57962",
+    "storage_bucket": "tradingbooks-57962.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846767057783:android:406d779811632347bfcf72",
+        "android_client_info": {
+          "package_name": "com.example.trading_books"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIqboo3zzpd7zcteKUcUNgYnMfguzOOt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

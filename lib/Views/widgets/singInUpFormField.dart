@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SingInUpFormField extends StatelessWidget {
   final String hinttext;
-  final String label;
+  final String? label;
   final Widget iconData;
   final TextEditingController mycontroller;
   final bool? obscureText;
@@ -13,7 +13,7 @@ class SingInUpFormField extends StatelessWidget {
   const SingInUpFormField({
     super.key,
     required this.hinttext,
-    required this.label,
+    this.label,
     required this.iconData,
     required this.mycontroller,
     this.validator,
@@ -23,7 +23,7 @@ class SingInUpFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 8),
       child: TextFormField(
         focusNode: focusNode,
         controller: mycontroller,
@@ -37,7 +37,6 @@ class SingInUpFormField extends StatelessWidget {
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: hinttext,
             hintStyle: const TextStyle(fontSize: 14),
-            label: Text(label),
             suffixIcon: iconData,
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
