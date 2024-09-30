@@ -7,12 +7,16 @@ enum InputTypes {
   userName,
   phone,
   passwordSignUp,
+  repeatpasswordSingnUp,
   passwordReset,
   repasswordReset,
 }
 
 validInput(String val, int min, int max, InputTypes type) {
   if (type == InputTypes.email) {
+    if (val == "") {
+      return "Enter your email !!";
+    }
     if (!MyUtils.isEmail(val)) {
       return "Invalid Email";
     }
@@ -24,6 +28,9 @@ validInput(String val, int min, int max, InputTypes type) {
     } else {
       return null;
     }
+  }
+  if (type == InputTypes.repeatpasswordSingnUp) {
+    return "must be the same password";
   }
   if (type == InputTypes.passwordLogin ||
       type == InputTypes.passwordSignUp ||

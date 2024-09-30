@@ -41,12 +41,13 @@ dependencies:
   awesome_bottom_bar: ^1.2.4
   babstrap_settings_screen: ^0.1.6
   image_picker: ^1.0.8
-  firebase_core: ^2.27.0
+  firebase_core: 2.32.0
   firebase_storage: ^11.6.9
   firebase_messaging: ^14.7.19
   firebase_auth: ^4.17.8
   cloud_firestore: ^4.15.8
   google_sign_in: ^6.2.1
+  awesome_dialog: ^3.2.1
   
 
 dev_dependencies:

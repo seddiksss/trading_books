@@ -9,6 +9,7 @@ import 'package:trading_books/Core/functions/validInput.dart';
 class MyUtils extends GetxController {
   bool obscureTextLogin = true;
   bool obscureTextSignUp = true;
+  bool obscureTextRepeatSignUp = true;
   bool obscureTextReset1 = true;
   bool obscureTextReset2 = true;
   static bool isUsername(String val) {
@@ -61,6 +62,9 @@ class MyUtils extends GetxController {
         break;
       case InputTypes.repasswordReset:
         obscureTextReset2 = !obscureTextReset2;
+        break;
+      case InputTypes.repeatpasswordSingnUp:
+        obscureTextRepeatSignUp = !obscureTextRepeatSignUp;
         break;
 
       default:

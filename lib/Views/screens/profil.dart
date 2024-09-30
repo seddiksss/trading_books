@@ -1,12 +1,15 @@
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:trading_books/Controllers/homeController.dart';
 import 'package:trading_books/Controllers/profilController.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Views/screens/editProfil.dart';
 import 'package:trading_books/Views/screens/payment.dart';
+import 'package:trading_books/Views/screens/singin.dart';
 
 class Profile extends GetView<HomeController> {
   const Profile({super.key});
@@ -133,7 +136,12 @@ class Profile extends GetView<HomeController> {
               settingsGroupTitle: "Account",
               items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () async {
+                    GoogleSignIn googleSignIn = GoogleSignIn();
+                    googleSignIn.disconnect();
+                    await FirebaseAuth.instance.signOut();
+                    Get.offAll(() => const SingIn());
+                  },
                   icons: Icons.exit_to_app_rounded,
                   title: "Sign Out",
                 ),

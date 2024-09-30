@@ -12,13 +12,13 @@ void main() async {
   await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+      name: "trading books",
       options: const FirebaseOptions(
-    apiKey: 'key',
-    appId: 'id',
-    messagingSenderId: 'sendid',
-    projectId: 'myapp',
-    storageBucket: 'myapp-b9yt18.appspot.com',
-  ));
+          apiKey: "apiKey",
+          appId: "appId",
+          messagingSenderId: "messagingSenderId",
+          projectId: "projectId"));
+
   FirebaseAuth.instance.authStateChanges().listen((User? user) {
     if (user == null) {
       print('================User is currently signed out!');
@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         initialBinding: InitialBindings(),
-        initialRoute: AppRoutes.onboardingScreen,
+        initialRoute: FirebaseAuth.instance.currentUser != null
+            ? AppRoutes.homeScreen
+            : AppRoutes.onboardingScreen,
         // home: const HomeScreen(),
         getPages: getPages);
   }

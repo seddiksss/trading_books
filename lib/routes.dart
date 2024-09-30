@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Middelwares/middelware.dart';
 import 'package:trading_books/Views/screens/bookDetails.dart';
+
 import 'package:trading_books/Views/screens/home.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/screens/notifications.dart';
@@ -34,10 +35,11 @@ List<GetPage<dynamic>>? getPages = [
     // middlewares: [AppMiddleWare()]
   ),
   GetPage(
-    name: AppRoutes.singup,
-    page: () => const SingUp(),
-    // middlewares: [AppMiddleWare()]
-  ),
+      name: AppRoutes.singup,
+      page: () => const SingUp(),
+      binding: SignUpBindings()
+      // middlewares: [AppMiddleWare()]
+      ),
 
   GetPage(
     name: AppRoutes.homeScreen,

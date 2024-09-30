@@ -1,9 +1,13 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:trading_books/Controllers/singInController.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
+import 'package:trading_books/Core/functions/myUtils.dart';
 import 'package:trading_books/Core/functions/validInput.dart';
 import 'package:trading_books/Views/screens/homescreen.dart';
 import 'package:trading_books/Views/widgets/singInUpFormField.dart';
@@ -13,19 +17,19 @@ class SingIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SingInController());
+    Get.put(MyUtils());
     return Scaffold(
         appBar: AppBar(
           title: const Text('Sing in'),
           centerTitle: true,
         ),
         body: GetBuilder<SingInController>(
-          builder: (controller) => Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Form(
-                autovalidateMode: AutovalidateMode.always,
-                key: controller.formstate,
+          builder: (controller) => Form(
+            autovalidateMode: AutovalidateMode.always,
+            key: controller.formstate,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: ListView(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,7 +53,7 @@ class SingIn extends StatelessWidget {
                       obscureText: false,
                       mycontroller: controller.emailController,
                       validator: (val) {
-                        return validInput(val!, 5, 40, InputTypes.email);
+                        return validInput(val!, 2, 40, InputTypes.email);
                       },
                     ),
                     const Text(
@@ -57,11 +61,21 @@ class SingIn extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 20, fontWeight: FontWeight.bold, height: 2),
                     ),
-                    SingInUpFormField(
-                      hinttext: 'Enter your password',
-                      iconData: const Icon(Icons.remove_red_eye),
-                      obscureText: true,
-                      mycontroller: controller.passwordController,
+                    GetBuilder<MyUtils>(
+                      builder: (myUtilController) => SingInUpFormField(
+                        hinttext: 'Enter your password',
+                        iconData: IconButton(
+                          onPressed: () {
+                            myUtilController
+                                .changeObscureText(InputTypes.passwordLogin);
+                          },
+                          icon: myUtilController.obscureTextLogin
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off),
+                        ),
+                        obscureText: myUtilController.obscureTextLogin,
+                        mycontroller: controller.passwordController,
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -73,7 +87,33 @@ class SingIn extends StatelessWidget {
                                 color: AppColor.red,
                                 fontWeight: FontWeight.w400),
                           ),
-                          onTap: () {},
+                          onTap: () async {
+                            if (controller.formstate.currentState!.validate()) {
+                              try {
+                                await FirebaseAuth.instance
+                                    .sendPasswordResetEmail(
+                                        email: controller.emailController.text);
+                                AwesomeDialog(
+                                  context: context,
+                                  dialogType: DialogType.info,
+                                  animType: AnimType.rightSlide,
+                                  title: 'Change pssword',
+                                  desc:
+                                      'Check your email to reaset your password!.',
+                                  // btnCancelOnPress: () {
+                                  //   Get.back();
+                                  // },
+                                  btnOkOnPress: () {
+                                    Get.back();
+                                  },
+                                ).show();
+                              } catch (e) {
+                                print("====error $e");
+                              }
+
+                              // Get.toNamed(AppRoutes.forgotpassword);
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -89,8 +129,46 @@ class SingIn extends StatelessWidget {
                           "Login",
                           style: TextStyle(color: AppColor.white),
                         ),
-                        onPressed: () {
-                          Get.offAll(() => const HomeScreen());
+                        onPressed: () async {
+                          try {
+                            final credential = await FirebaseAuth.instance
+                                .signInWithEmailAndPassword(
+                                    email: controller.emailController.text,
+                                    password:
+                                        controller.passwordController.text);
+
+                            if (credential.user!.emailVerified) {
+                              Get.offAll(() => const HomeScreen());
+                            } else {
+                              AwesomeDialog(
+                                context: context,
+                                dialogType: DialogType.info,
+                                animType: AnimType.rightSlide,
+                                title: 'Verify',
+                                desc:
+                                    'Your email is not verify! Please verify.',
+                                btnCancelOnPress: () {
+                                  Get.back();
+                                },
+                                btnOkOnPress: () {
+                                  Get.back();
+                                },
+                              ).show();
+                            }
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'invalid-credential') {
+                              Get.rawSnackbar(
+                                snackPosition: SnackPosition.TOP,
+                                message: 'Email Or Password Incorrect.',
+                                title: "Erorr",
+                                backgroundColor: AppColor.red,
+                                margin: const EdgeInsets.all(10),
+                                borderRadius: 8,
+                                duration: const Duration(seconds: 6),
+                              );
+                            }
+                          }
+                          print("===============");
 
                           // Get.toNamed(AppRoutes.homeScreen);
                         }),
@@ -119,9 +197,7 @@ class SingIn extends StatelessWidget {
                           ],
                         ),
                         onPressed: () {
-                          // Get.offAll(() => const HomeScreen());
-
-                          // Get.toNamed(AppRoutes.homeScreen);
+                          controller.signInWithGoogle();
                         }),
                     const SizedBox(
                       height: 15,
