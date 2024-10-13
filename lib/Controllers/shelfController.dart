@@ -1,14 +1,17 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:path/path.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 
 class ShelfController extends GetxController {
+  bool isLoading = false;
   ScrollController? scrollController = ScrollController();
-
   GlobalKey<FormState>? formState = GlobalKey();
   final imagePicker = ImagePicker();
   XFile? pickedImage;
@@ -28,6 +31,7 @@ class ShelfController extends GetxController {
       .toList();
   void dropChange(String? val) {
     dropVal = val!;
+    print("===$dropVal");
     update();
   }
 
@@ -151,8 +155,10 @@ class ShelfController extends GetxController {
 
   void pickImage() async {
     final result = await imagePicker.pickImage(source: ImageSource.camera);
+
     if (result != null) {
       pickedImage = result;
+      await putDownImage();
       // pickedImagepath.add(pickedImage!.path);
       pickedImagepath.add(FileImage(File(result.path)));
       print("picked image ${pickedImage!.path}");
@@ -160,16 +166,59 @@ class ShelfController extends GetxController {
     }
   }
 
+  String? getedimage;
+  String? imagename;
+  List imageList = [];
   void pickImageFromGallery() async {
+    // isLoading = true;
     final result = await imagePicker.pickImage(source: ImageSource.gallery);
-
     if (result != null) {
       pickedImage = result;
+      await putDownImage();
       // pickedImagepath.add(pickedImage!.path);
       pickedImagepath.add(FileImage(File(result.path)));
       print("picked image ${pickedImage!.path}");
-
       update();
     }
+  }
+
+  putDownImage() async {
+    imagename = basename(pickedImage!.path);
+    var refStorage = FirebaseStorage.instance.ref("images/$dropVal/$imagename");
+    await refStorage.putFile(File(pickedImage!.path));
+    getedimage = await refStorage.getDownloadURL();
+    // isLoading = false;
+    imageList.add(getedimage);
+  }
+
+  CollectionReference users =
+      FirebaseFirestore.instance.collection("categories");
+  Future<void> addCategory() async {
+    isLoading = true;
+    update();
+    // Call the user's CollectionReference to add a new user
+    // await users
+    //     .doc("$dropVal")
+    //     .set({
+    //       'urlimages': imageList, // John Doe
+    //       'title': title.text, // John Doe
+    //       'author': author.text, // Stokes and Sons
+    //       'prix': prix.text,
+    //       'categorie': dropVal,
+    //       'id': FirebaseAuth.instance.currentUser!.uid,
+    //     })
+    //     .then((value) => print("User Added"))
+    //     .catchError((error) => print("Failed to add user: $error"));
+    await users
+        .add({
+          'urlimages': imageList, // John Doe
+          'title': title.text, // John Doe
+          'author': author.text, // Stokes and Sons
+          'prix': prix.text,
+          'categorie': dropVal,
+        })
+        .then((value) => print("User Added"))
+        .catchError((error) => print("Failed to add user: $error"));
+    isLoading = false;
   }
 }

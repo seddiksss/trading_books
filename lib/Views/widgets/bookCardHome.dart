@@ -13,7 +13,8 @@ class BookCardHome extends StatelessWidget {
   final String prix;
   final String? categorie;
   final String title;
-  final ImageProvider<Object> picture;
+  // final ImageProvider<Object> picture;
+  final String picture;
   final dynamic color;
   final void Function()? onTap;
   @override
@@ -30,22 +31,27 @@ class BookCardHome extends StatelessWidget {
             height: screenHeight / 3.5,
             child: Center(
               child: Container(
-                decoration: BoxDecoration(
-                  color: color,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3), // Shadow color
-                      offset: const Offset(8, 7), // Shadow offset
-                      blurRadius: 8, // Shadow blur radius
-                    ),
-                  ],
-                ),
-                child: Image(
-                  image: picture,
-                  fit: BoxFit.contain,
-                  height: screenHeight / 5,
-                ),
-              ),
+                  decoration: BoxDecoration(
+                    color: color,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3), // Shadow color
+                        offset: const Offset(8, 7), // Shadow offset
+                        blurRadius: 8, // Shadow blur radius
+                      ),
+                    ],
+                  ),
+                  child: Image.network(
+                    picture,
+                    height: screenHeight / 5,
+                    fit: BoxFit.contain,
+                  )
+                  // Image(
+                  //   image: picture,
+                  //   fit: BoxFit.contain,
+                  //   height: screenHeight / 5,
+                  // ),
+                  ),
             ),
           ),
           Padding(

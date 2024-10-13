@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
@@ -29,17 +30,17 @@ class HomeController extends GetxController {
     const Used(),
     const Exchange(),
   ];
-  List<ImageProvider> imagesList = [];
+  // List<ImageProvider> imagesList = [];
   // List<ImageProvider> newimagesList = [];
   // List<ImageProvider> newimagesListFix = [];
   // List<ImageProvider> usedimagesList = [];
   // List<ImageProvider> exchangeimagesList = [];
 
-  List allitemsList = [];
-  List newitemsList = [];
+  // List allitemsList = [];
+  // List newitemsList = [];
 
-  List useditemsList = [];
-  List exchangeitemsList = [];
+  // List useditemsList = [];
+  // List exchangeitemsList = [];
   // Map newitemsMap = ;
 
   changePage(int index) {
@@ -59,6 +60,40 @@ class HomeController extends GetxController {
       'itemsList': list,
     });
     update();
+  }
+
+  List data = [];
+  List newData = [];
+  List usedData = [];
+  List exchData = [];
+
+  getData() async {
+    QuerySnapshot<Map<String, dynamic>> querySnapshot =
+        await FirebaseFirestore.instance.collection("categories").get();
+    data.addAll(querySnapshot.docs);
+    // data.forEach((cat) {
+    //   // if (data) ;
+    // });
+    for (int i = 0; i < data.length; i++) {
+      if (data[i]['categorie'] == "New") {
+        newData.add(data[i]);
+      } else if (data[i]['categorie'] == "Used") {
+        usedData.add(data[i]);
+      } else {
+        exchData.add(data[i]);
+      }
+    }
+    // allitemsList = data;
+    // data.clear();
+    print("======Data==${data}");
+  }
+
+  @override
+  void onInit() async {
+    await getData();
+    // data.clear();
+    update();
+    super.onInit();
   }
 
   // goToBookNewDetails(List list, int index) {

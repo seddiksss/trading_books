@@ -12,27 +12,28 @@ class Exchange extends StatelessWidget {
     // final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
     return GetBuilder<HomeController>(builder: (controller) {
-      return GridView.count(
-          childAspectRatio: screenHeight / 1273,
-          mainAxisSpacing: screenHeight / 20,
-          crossAxisCount: 2,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          children: List.generate(
-            controller.allitemsList.length,
-            (index) => controller.allitemsList[index]['categorie'] == "Exchange"
-                ? BookCardHome(
-                    onTap: () {
-                      controller.goToBookDetails(
-                          controller.allitemsList, index);
-                    },
-                    color: Colors.blueAccent,
-                    picture: controller.allitemsList[index]['pictures'][0],
-                    title: controller.allitemsList[index]['title'],
-                    prix: controller.allitemsList[index]['prix'],
-                  )
-                : const Center(child: Text("no Exchange items")),
-          ));
+      return controller.exchData.isEmpty
+          ? const Center(
+              child: Text("No exchange book availble"),
+            )
+          : GridView.count(
+              childAspectRatio: screenHeight / 1273,
+              mainAxisSpacing: screenHeight / 20,
+              crossAxisCount: 2,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              children: List.generate(
+                  controller.exchData.length,
+                  (index) => BookCardHome(
+                        onTap: () {
+                          controller.goToBookDetails(
+                              controller.exchData, index);
+                        },
+                        color: Colors.blueAccent,
+                        picture: controller.exchData[index]['urlimages'][0],
+                        title: controller.exchData[index]['title'],
+                        prix: controller.exchData[index]['prix'],
+                      )));
     });
   }
 }

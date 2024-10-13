@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
+
 import 'package:trading_books/Views/widgets/customCategoresButton.dart';
 
 class Home extends GetView<HomeController> {
@@ -73,7 +75,12 @@ class Home extends GetView<HomeController> {
                     ),
                     InkWell(
                       onTap: () {
+                        // addUser();
+                        controller.data.clear();
                         print("click button");
+                        // print(".......;${controller.data[0]['title']}");
+
+                        // addUser();
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(

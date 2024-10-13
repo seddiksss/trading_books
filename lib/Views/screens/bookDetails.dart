@@ -30,27 +30,32 @@ class BookDetails extends StatelessWidget {
                         },
                         scrollDirection: Axis.horizontal,
                         itemCount: controller
-                            .itemsList[controller.index]['pictures'].length,
+                            .itemsList[controller.index]['urlimages'].length,
                         itemBuilder: (context, i) {
                           return Container(
-                            width: screenHeight / 2.25,
-                            decoration: BoxDecoration(
-                              color: AppColor.grey.withOpacity(0.1),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black
-                                      .withOpacity(0.1), // Shadow color
-                                  offset: const Offset(4, 5), // Shadow offset
-                                  blurRadius: 8, // Shadow blur radius
-                                ),
-                              ],
-                            ),
-                            child: Image(
-                              image: controller.itemsList[controller.index]
-                                  ['pictures'][i],
-                              fit: BoxFit.fill,
-                            ),
-                          );
+                              width: screenHeight / 2.25,
+                              decoration: BoxDecoration(
+                                color: AppColor.grey.withOpacity(0.1),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black
+                                        .withOpacity(0.1), // Shadow color
+                                    offset: const Offset(4, 5), // Shadow offset
+                                    blurRadius: 8, // Shadow blur radius
+                                  ),
+                                ],
+                              ),
+                              child: Image.network(
+                                controller.itemsList[controller.index]
+                                    ['urlimages'][i],
+                                fit: BoxFit.fill,
+                              )
+                              // Image(
+                              //   image: controller.itemsList[controller.index]
+                              //       ['urlimages'][i],
+                              //   fit: BoxFit.fill,
+                              // ),
+                              );
                         }),
                   ),
                   GetBuilder<BookDetailsController>(
@@ -62,7 +67,7 @@ class BookDetails extends StatelessWidget {
                               children: [
                                 ...List.generate(
                                   controller
-                                      .itemsList[controller.index]['pictures']
+                                      .itemsList[controller.index]['urlimages']
                                       .length,
                                   (index) => AnimatedContainer(
                                     duration: const Duration(milliseconds: 500),
