@@ -28,7 +28,7 @@ class BookCardHome extends StatelessWidget {
         children: [
           Container(
             color: color,
-            height: screenHeight / 3.5,
+            height: screenHeight / 3.7,
             child: Center(
               child: Container(
                   decoration: BoxDecoration(

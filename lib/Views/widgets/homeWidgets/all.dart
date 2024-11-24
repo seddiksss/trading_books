@@ -26,7 +26,7 @@ class All extends GetView<HomeController> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               children: List.generate(
-                controller.data.length,
+                4,
                 (index) => Stack(
                   children: [
                     BookCardHome(

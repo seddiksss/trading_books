@@ -2,8 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/homeController.dart';
-
+import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Views/widgets/customCategoresButton.dart';
+
+import 'package:trading_books/Views/widgets/homeWidgets/exploreMore.dart';
+import 'package:trading_books/Views/widgets/homeWidgets/homeTitle.dart';
 
 class Home extends GetView<HomeController> {
   const Home({super.key});
@@ -99,13 +102,7 @@ class Home extends GetView<HomeController> {
             SizedBox(
               height: screenHeight / 35,
             ),
-            const Text(
-              "NEW ARRIVAL",
-              style: TextStyle(fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-            const Divider(
-                height: 1.0, endIndent: 120, indent: 120, color: Colors.black),
+            const HomeTitle(title: "NEW ARRIVAL"),
             SizedBox(
               height: screenHeight / 35,
             ),
@@ -143,12 +140,35 @@ class Home extends GetView<HomeController> {
               ),
             ),
             GetBuilder<HomeController>(
-                builder: (controller) => ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 1,
-                    itemBuilder: (context, i) =>
-                        controller.itemsList[controller.currentCategories])),
+              builder: (controller) => ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 1,
+                  itemBuilder: (context, i) =>
+                      controller.itemsList[controller.currentCategories]),
+            ),
+            SizedBox(
+              height: screenHeight / 35,
+            ),
+            Exploremore(onTap: () {}),
+            SizedBox(
+              height: screenHeight / 35,
+            ),
+            const HomeTitle(title: "COMMUNITY"),
+            SizedBox(
+              height: screenHeight / 35,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+              height: Get.height / 4,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: AppColor.primarycolor, width: 2)),
+            ),
+            SizedBox(
+              height: screenHeight / 35,
+            ),
+            Exploremore(onTap: () {}),
           ],
         ),
       ),

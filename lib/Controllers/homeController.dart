@@ -50,7 +50,6 @@ class HomeController extends GetxController {
 
   changeCat(int index) {
     currentCategories = index;
-
     update();
   }
 

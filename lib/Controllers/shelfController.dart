@@ -54,6 +54,7 @@ class ShelfController extends GetxController {
     prix.clear();
     pickedImage = null;
     pickedImagepath.clear();
+    update();
   }
   // List<String> imageList = [
   //   AppImages.ImageName("home.png"),
@@ -174,11 +175,12 @@ class ShelfController extends GetxController {
     final result = await imagePicker.pickImage(source: ImageSource.gallery);
     if (result != null) {
       pickedImage = result;
-      await putDownImage();
+
       // pickedImagepath.add(pickedImage!.path);
       pickedImagepath.add(FileImage(File(result.path)));
-      print("picked image ${pickedImage!.path}");
       update();
+      await putDownImage();
+      print("picked image ${pickedImage!.path}");
     }
   }
 
@@ -196,19 +198,7 @@ class ShelfController extends GetxController {
   Future<void> addCategory() async {
     isLoading = true;
     update();
-    // Call the user's CollectionReference to add a new user
-    // await users
-    //     .doc("$dropVal")
-    //     .set({
-    //       'urlimages': imageList, // John Doe
-    //       'title': title.text, // John Doe
-    //       'author': author.text, // Stokes and Sons
-    //       'prix': prix.text,
-    //       'categorie': dropVal,
-    //       'id': FirebaseAuth.instance.currentUser!.uid,
-    //     })
-    //     .then((value) => print("User Added"))
-    //     .catchError((error) => print("Failed to add user: $error"));
+
     await users
         .add({
           'urlimages': imageList, // John Doe
@@ -220,5 +210,6 @@ class ShelfController extends GetxController {
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
     isLoading = false;
+    imageList.clear();
   }
 }

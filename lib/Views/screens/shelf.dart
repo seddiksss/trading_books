@@ -296,39 +296,8 @@ class Shelf extends GetView<ShelfController> {
                               cont.usedData.clear();
                               await controller.addCategory();
                               await cont.getData();
-
-                              // print("==images url==${controller.imageList}");
-
-                              // await controller.putDownImage();
-                              // print("drop val : ${controller.dropVal}");
-                              // homecont.newimagesList.clear();
-                              // homecont.usedimagesList.clear();
-                              // homecont.exchangeimagesList.clear();
-                              // homecont.imagesList.clear();
-                              // homecont.allitemsList.clear();
                               controller.j = 4;
-                              // homecont.imagesList
-                              //     .addAll(controller.pickedImagepath);
 
-                              // homecont.allitemsList.add({
-                              //   'pictures': homecont.imagesList,
-                              //   'title': controller.title.text,
-                              //   'author': controller.author.text,
-                              //   'prix': controller.prix.text,
-                              //   'categorie': controller.dropVal
-                              // });
-                              // print("allitemsList::${homecont.allitemsList}");
-
-                              // if (controller.dropVal == "New") {
-                              //   homecont.newitemsList
-                              //       .addAll(homecont.allitemsList);
-                              // } else if (controller.dropVal == "Used") {
-                              //   homecont.useditemsList
-                              //       .addAll(homecont.allitemsList);
-                              // } else {
-                              //   homecont.exchangeitemsList
-                              //       .addAll(homecont.allitemsList);
-                              // }
                               Get.snackbar("Success", "item has been listed",
                                   backgroundColor: AppColor.primarycolor,
                                   colorText: AppColor.white);
