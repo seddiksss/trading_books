@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 import 'package:trading_books/Core/Constants/mediaquery.dart';
-import 'package:trading_books/Views/widgets/profileWidgets/BankCard.dart';
 
 class Paymentmethode extends StatelessWidget {
   const Paymentmethode({super.key});

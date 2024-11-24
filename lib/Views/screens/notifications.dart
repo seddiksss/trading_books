@@ -48,7 +48,8 @@ class Notifications extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: controller.requestList.length,
-                itemBuilder: (context, i) => controller.requestList[i]),
+                itemBuilder: (context, i) =>
+                    controller.requestList[controller.currentCategories]),
           ),
         ],
       ),
