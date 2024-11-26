@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
-import 'package:trading_books/Views/screens/homescreen.dart';
+
 import 'package:trading_books/bindings/bindings.dart';
 import 'package:trading_books/routes.dart';
 

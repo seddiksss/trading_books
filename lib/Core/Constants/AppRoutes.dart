@@ -11,6 +11,7 @@ class AppRoutes {
   static String profile = "/profile";
   static String bookDetails = "/bookDetails";
   static String payment = "/payment";
+  static String chatScreen = "/chatScreen";
 
   // static String singin = "/singin";
   // static String singin = "/singin";
