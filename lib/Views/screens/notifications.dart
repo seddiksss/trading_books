@@ -44,12 +44,8 @@ class Notifications extends StatelessWidget {
             ),
           ),
           GetBuilder<NotificationController>(
-            builder: (controller) => ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: controller.requestList.length,
-                itemBuilder: (context, i) =>
-                    controller.requestList[controller.currentCategories]),
+            builder: (controller) => Container(
+                child: controller.requestList[controller.currentCategories]),
           ),
         ],
       ),

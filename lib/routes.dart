@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:trading_books/Controllers/chatController.dart';
 import 'package:trading_books/Core/Constants/AppRoutes.dart';
 import 'package:trading_books/Middelwares/middelware.dart';
 import 'package:trading_books/Views/screens/bookDetails.dart';
@@ -12,18 +13,20 @@ import 'package:trading_books/Views/screens/payment.dart';
 import 'package:trading_books/Views/screens/profil.dart';
 import 'package:trading_books/Views/screens/singin.dart';
 import 'package:trading_books/Views/screens/singup.dart';
-import 'package:trading_books/Views/widgets/notificationWidgets/chatScreen.dart';
+import 'package:trading_books/Views/screens/chatScreen.dart';
 import 'package:trading_books/bindings/bindings.dart';
 
 List<GetPage<dynamic>>? getPages = [
-  GetPage(
-    name: AppRoutes.chatScreen,
-    page: () => ChatScreen(
-      currentUserId: FirebaseAuth.instance.currentUser!.uid,
-      otherUserId: '',
-    ),
-    // middlewares: [AppMiddleWare()]
-  ),
+  // GetPage(
+  //   name: AppRoutes.chatScreen,
+  //   page: () => ChatScreen(
+
+  //       //     currentUserId: FirebaseAuth.instance.currentUser!.uid,
+  //       //     otherUserId: '',
+  //       ),
+
+  //   //   // middlewares: [AppMiddleWare()]
+  // ),
   GetPage(
     name: AppRoutes.payment,
     page: () => const Payment(),

@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -128,6 +129,8 @@ class SingIn extends StatelessWidget {
                           "Login",
                           style: TextStyle(color: AppColor.white),
                         ),
+                        // seddik098@gmail.com && seddiko0987@gmail.com ......................................
+                        // Seddik1234............................
                         onPressed: () async {
                           try {
                             final credential = await FirebaseAuth.instance
@@ -135,8 +138,16 @@ class SingIn extends StatelessWidget {
                                     email: controller.emailController.text,
                                     password:
                                         controller.passwordController.text);
-
+                            //save user email if it doesn't exist
                             if (credential.user!.emailVerified) {
+                              FirebaseFirestore.instance
+                                  .collection("Users")
+                                  .doc(credential.user!.uid)
+                                  .set({
+                                "uid": credential.user!.uid,
+                                "email": controller.emailController.text,
+                              });
+
                               Get.offAll(() => const HomeScreen());
                             } else {
                               AwesomeDialog(

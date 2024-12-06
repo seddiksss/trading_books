@@ -126,6 +126,7 @@ class SingUp extends StatelessWidget {
                               );
                               await FirebaseAuth.instance.currentUser!
                                   .sendEmailVerification();
+
                               AwesomeDialog(
                                 context: context,
                                 dialogType: DialogType.info,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 
@@ -48,7 +49,7 @@ class CartMessage extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           alignment: Alignment.topCenter,
-          title: Text(name),
+          title: Container(child: Text(name)),
           content: SizedBox(
             height: 200,
             child: Image.asset(
@@ -63,7 +64,8 @@ class CartMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +75,7 @@ class CartMessage extends StatelessWidget {
                 showImagePopup(AppImages.ImageName(image!), context);
               },
               child: CircleAvatar(
-                radius: 45,
+                radius: 30,
                 backgroundImage: AssetImage(
                   image!,
                 ),
@@ -85,12 +87,16 @@ class CartMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                name,
-                style: const TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "sans"),
+              SizedBox(
+                width: Get.width / 1.7,
+                child: Text(
+                  softWrap: false,
+                  name,
+                  style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "sans"),
+                ),
               ),
               Text(
                 message,
@@ -120,6 +126,8 @@ class CartMessage extends StatelessWidget {
               )
             ],
           ),
+          const Spacer(),
+          const Text("14:25")
         ],
       ),
     );

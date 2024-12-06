@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,6 +33,10 @@ class SingInController extends GetxController {
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
+    FirebaseFirestore.instance.collection("Users").doc(credential.idToken).set({
+      "uid": credential.idToken,
+      "email": emailController.text,
+    });
     Get.offAll(() => const HomeScreen());
   }
 }

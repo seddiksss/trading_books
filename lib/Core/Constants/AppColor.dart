@@ -11,7 +11,7 @@ class AppColor {
 
   static const Color primarycolor = Color.fromARGB(221, 231, 111, 56);
   static const Color secondColor = Color.fromARGB(221, 182, 60, 3);
-  static const Color thirdColor = Color.fromARGB(221, 229, 176, 154);
+  static const Color thirdColor = Color.fromARGB(221, 240, 150, 112);
   // static const Color thirdColorx = Color(565656);
 
 //  #565656
