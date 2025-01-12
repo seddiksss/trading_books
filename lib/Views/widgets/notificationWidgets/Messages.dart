@@ -47,6 +47,7 @@ class Messages extends StatelessWidget {
                         name: snapshot.data![index]['email'].toString(),
                         message: 'Hello how are you',
                         image: AppImages.ImageName("face.jpeg"),
+                        time: "12:30",
                       ),
                     );
                   } else {

@@ -4,6 +4,8 @@ import 'package:trading_books/Core/Constants/AppColor.dart';
 import 'package:trading_books/Core/Constants/AppImages.dart';
 
 class CartMessage extends StatelessWidget {
+  final String? time;
+
   final String? image;
   final String name;
   final String message;
@@ -16,7 +18,8 @@ class CartMessage extends StatelessWidget {
       required this.name,
       required this.message,
       this.cancelIcon,
-      this.confirmIcon});
+      this.confirmIcon,
+      this.time});
   void showImagePopup(String? imagePath, context) {
     // showModalBottomSheet(
     //   context: context,
@@ -127,7 +130,7 @@ class CartMessage extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          const Text("14:25")
+          Text(time!)
         ],
       ),
     );

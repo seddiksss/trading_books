@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trading_books/Controllers/chatController.dart';
@@ -7,14 +8,12 @@ class ChatScreen extends StatelessWidget {
   final String recieverEmail;
   final String recieverUserID;
   ChatController chatController = Get.find();
-  String time = "xxx";
 
   ChatScreen(
       {super.key, required this.recieverEmail, required this.recieverUserID});
 
   @override
   Widget build(BuildContext context) {
-    String time = "xxx";
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text(recieverEmail)),
@@ -43,11 +42,11 @@ class ChatScreen extends StatelessWidget {
       //         icon: const Icon(Icons.send))
       //   ],
       // ),
-      body: _buildMessagList(time),
+      body: _buildMessagList(),
     );
   }
 
-  Widget _buildMessagList(String time) {
+  Widget _buildMessagList() {
     return StreamBuilder(
         stream: chatController.getMessages(
             chatController.auth.currentUser!.uid, recieverUserID),
@@ -77,7 +76,11 @@ class ChatScreen extends StatelessWidget {
                           children: [
                             Container(
                                 decoration: BoxDecoration(
-                                    color: AppColor.thirdColor,
+                                    color: recieverUserID ==
+                                            snapshot.data!.docs[index]
+                                                ['senderId']
+                                        ? AppColor.grey
+                                        : AppColor.thirdColor,
                                     borderRadius: BorderRadius.circular(5)),
                                 child: Padding(
                                   padding:
@@ -127,9 +130,6 @@ class ChatScreen extends StatelessWidget {
                 controller: chatController.message)),
         IconButton(
             onPressed: () async {
-              time = DateTime.now().toString();
-              chatController.update();
-              print("....time:::${time}");
               if (chatController.message.text.isNotEmpty) {
                 await chatController.sendMessage(
                     recieverUserID, chatController.message.text);

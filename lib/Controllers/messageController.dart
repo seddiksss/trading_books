@@ -26,4 +26,11 @@ class MessagController extends GetxController {
       }).toList();
     });
   }
+
+  String formatTimestamp(Timestamp timestamp) {
+    if (timestamp == null) return '';
+
+    DateTime dateTime = timestamp.toDate();
+    return '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
+  }
 }

@@ -10,7 +10,7 @@ class ChatController extends GetxController {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final CollectionReference user =
       FirebaseFirestore.instance.collection("Users");
-  final DateTime timeNow = DateTime.now();
+
   Future<void> sendMessage(String receiverId, message) async {
     final String currentUserID = auth.currentUser!.uid;
     final String currerntUserEmail = auth.currentUser!.email!;
@@ -20,7 +20,7 @@ class ChatController extends GetxController {
         senderId: currentUserID,
         receiverId: receiverId,
         content: message,
-        timestamp: timeNow);
+        timestamp: timestamp);
     List ids = [currentUserID, receiverId];
     ids.sort();
     String chatRoomID = ids.join('_');
@@ -32,15 +32,6 @@ class ChatController extends GetxController {
   }
 
   Stream<QuerySnapshot>? getMessages(String userID, otherUserID) {
-    // final String currentUserID = auth.currentUser!.uid;
-    // final String currerntUserEmail = auth.currentUser!.email!;
-    // final Timestamp timestamp = Timestamp.now();
-    // MessageModel? newmessage = MessageModel.fromMap(
-    //     {"senderEmail": currerntUserEmail,
-    //     "senderId": currentUserID,
-    //     "receiverId": receiverId,
-    //     "content": message,
-    //     "timestamp": timestamp});
     List ids = [userID, otherUserID];
     ids.sort();
     String chatRoomID = ids.join('_');

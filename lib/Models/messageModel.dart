@@ -5,7 +5,7 @@ class MessageModel {
   final String senderEmail;
   final String receiverId;
   final String content;
-  final DateTime timestamp;
+  final Timestamp timestamp;
 
   MessageModel({
     required this.senderEmail,
