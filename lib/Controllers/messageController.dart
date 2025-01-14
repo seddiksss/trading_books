@@ -27,6 +27,19 @@ class MessagController extends GetxController {
     });
   }
 
+  Stream<QuerySnapshot>? getNotifMessage(String userID, otherUserID) {
+    List ids = [userID, otherUserID];
+    ids.sort();
+    String chatRoomID = ids.join('_');
+    print("chat Rooooooom ..${chatRoomID}");
+    return firestore
+        .collection("chat_rooms")
+        .doc(chatRoomID)
+        .collection("messages")
+        .orderBy('timestamp', descending: false)
+        .snapshots();
+  }
+
   String formatTimestamp(Timestamp timestamp) {
     if (timestamp == null) return '';
 

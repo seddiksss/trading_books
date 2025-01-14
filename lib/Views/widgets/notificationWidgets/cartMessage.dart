@@ -5,21 +5,27 @@ import 'package:trading_books/Core/Constants/AppImages.dart';
 
 class CartMessage extends StatelessWidget {
   final String? time;
-
   final String? image;
   final String name;
   final String message;
+  final int? messageCount;
   final IconData? cancelIcon;
   final IconData? confirmIcon;
+  final Color? notifTimeColor;
+  final Color? notifCountColor;
 
-  const CartMessage(
-      {super.key,
-      this.image,
-      required this.name,
-      required this.message,
-      this.cancelIcon,
-      this.confirmIcon,
-      this.time});
+  const CartMessage({
+    super.key,
+    this.image,
+    required this.name,
+    required this.message,
+    this.messageCount,
+    this.notifTimeColor,
+    this.cancelIcon,
+    this.confirmIcon,
+    this.time,
+    this.notifCountColor,
+  });
   void showImagePopup(String? imagePath, context) {
     // showModalBottomSheet(
     //   context: context,
@@ -130,7 +136,34 @@ class CartMessage extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Text(time!)
+          Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                "$time",
+                style: TextStyle(color: notifTimeColor),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                  color: notifCountColor,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Center(
+                  child: Text(
+                    "$messageCount",
+                    style: const TextStyle(color: AppColor.white),
+                  ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );

@@ -17,6 +17,7 @@ class Messages extends StatelessWidget {
     return _buildUserList();
   }
 
+  int j = 0;
   Widget _buildUserList() {
     return StreamBuilder(
         stream: messagController.getUsersStream(),
@@ -42,13 +43,50 @@ class Messages extends StatelessWidget {
                         messagController.goToChatPage(
                             snapshot.data![index]['email'],
                             snapshot.data![index]['uid']);
+                        j = 0;
                       },
-                      child: CartMessage(
-                        name: snapshot.data![index]['email'].toString(),
-                        message: 'Hello how are you',
-                        image: AppImages.ImageName("face.jpeg"),
-                        time: "12:30",
-                      ),
+                      child: StreamBuilder(
+                          stream: messagController.getNotifMessage(
+                              messagController.getCurrentUser()!.uid,
+                              snapshot.data![index]['uid']),
+                          builder: (context, snap) {
+                            if (snap.hasError) {
+                              return const Text("Error");
+                            }
+                            if (snap.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Text("Loading...");
+                            }
+                            print(
+                                "snapData ..=========${messagController.getCurrentUser()!.uid}_${snapshot.data![index]['uid']} ");
+
+                            if (snap.data!.docs.last['receiverId'] ==
+                                snapshot.data![index]['uid']) {
+                              j = 0;
+                            } else {
+                              j++;
+                            }
+
+                            return CartMessage(
+                              name: snapshot.data![index]['email'].toString(),
+                              message:
+                                  snap.data!.docs.last['content'].toString(),
+                              image: AppImages.ImageName("face.jpeg"),
+                              time: messagController.formatTimestamp(
+                                  snap.data!.docs.last['timestamp']),
+                              messageCount: j,
+                              notifTimeColor:
+                                  snap.data!.docs.last['receiverId'] !=
+                                          snapshot.data![index]['uid']
+                                      ? AppColor.primarycolor
+                                      : AppColor.black,
+                              notifCountColor:
+                                  snap.data!.docs.last['receiverId'] !=
+                                          snapshot.data![index]['uid']
+                                      ? AppColor.primarycolor
+                                      : AppColor.white,
+                            );
+                          }),
                     );
                   } else {
                     return Container();

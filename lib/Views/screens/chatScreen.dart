@@ -117,27 +117,38 @@ class ChatScreen extends StatelessWidget {
   }
 
   Widget _textFormFiledsender() {
-    return Row(
-      children: [
-        Expanded(
-            // width: 300,
-            child: TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Row(
+        children: [
+          Expanded(
+              // width: 300,
+              child: TextFormField(
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide:
+                            const BorderSide(color: AppColor.primarycolor)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
-                ),
-                controller: chatController.message)),
-        IconButton(
-            onPressed: () async {
-              if (chatController.message.text.isNotEmpty) {
-                await chatController.sendMessage(
-                    recieverUserID, chatController.message.text);
-                chatController.message.clear();
-              }
-            },
-            icon: const Icon(Icons.send))
-      ],
+                  controller: chatController.message)),
+          IconButton(
+              onPressed: () async {
+                if (chatController.message.text.isNotEmpty) {
+                  await chatController.sendMessage(
+                      recieverUserID, chatController.message.text);
+                  chatController.message.clear();
+                }
+              },
+              icon: const Icon(
+                Icons.send,
+                color: AppColor.primarycolor,
+                size: 30,
+              ))
+        ],
+      ),
     );
   }
 
