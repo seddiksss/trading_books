@@ -14,6 +14,7 @@ class MessagController extends GetxController {
   goToChatPage(String recieverEmail, recieverUserID) {
     Get.to(() => ChatScreen(
         recieverEmail: recieverEmail, recieverUserID: recieverUserID));
+    update();
   }
 
   Stream<List<Map<String, dynamic>>> getUsersStream() {
